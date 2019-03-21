@@ -1,0 +1,8 @@
+<view class='container'>
+<!-- 这里用定义了一个简单的播放测试界面，每次播放都会弹出窗口，接下来考虑改进界面，完善功能 -->
+  <input type='text' auto-focus='true' placeholder='请输入要搜索的音乐' bindinput='Input'></input>
+  <button bindtap='Search'>搜索</button>
+
+  <image src='{{music[0].album.picUrl}}'></image>
+  
+</view>
