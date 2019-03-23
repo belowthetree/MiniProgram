@@ -1,0 +1,8 @@
+/* pages/index/index.wxss */
+.container{
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}

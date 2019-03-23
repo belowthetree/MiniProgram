@@ -1,0 +1,11 @@
+<!--pages/index/index.wxml-->
+<view class='container'>
+<text>pages/index/index.wxml</text>
+<item content="你好" bindmyevent='myevent'>
+<input type='text' bindinput='input' placeholder='输入天气拼音'></input>
+<button bindtap='Click'>天气</button>
+</item>
+  <text>城市：{{weather.location.path}}</text>
+  <text>温度：{{weather.now.temperature}}</text>
+  <text>天气：{{weather.now.text}}</text>
+</view>

@@ -1,0 +1,5 @@
+<view class='container'>
+  <text>HHH</text>
+  <button bindtap='OnClick'>你好</button>
+  <slot></slot>
+</view>

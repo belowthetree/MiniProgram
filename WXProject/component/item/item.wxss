@@ -1,0 +1,6 @@
+/* component/item/item.wxss */
+.container{
+  display: flex block;
+  align-content: space-around;
+  flex-direction: column;
+}
