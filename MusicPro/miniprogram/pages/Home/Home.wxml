@@ -1,0 +1,14 @@
+<!--miniprogram/pages/Home/Home.wxml-->
+<view class='container'>
+  <image src='{{imgpath}}'></image>
+  <text class='text'>用户名：{{username}}</text>
+  <view class='ver-line'></view>
+  <view class='bar'>
+    <navigator class='text'>我的分享</navigator><view class='hor-line'></view>
+    <navigator class='text'>回复我的</navigator><view class='hor-line'></view>
+    <navigator class='text'>我的收藏</navigator>
+  </view>
+  <view class='ver-line'></view>
+  <navigator class='text' style='margin-top:30rpx;'>登录</navigator>
+  <navigator class='text' style='margin-top:30rpx;'>切换账号</navigator>
+</view>

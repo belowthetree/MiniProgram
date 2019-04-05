@@ -1,0 +1,50 @@
+/* miniprogram/pages/Home/Home.wxss */
+.container{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+
+  padding-top: 50rpx;
+  align-items: center;
+}
+
+.bar{
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.ver-line{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  background-color: gray;
+  height: 3rpx;
+  width: 75%;
+}
+
+.hor-line{
+  height: 120rpx;
+  width: 3rpx;
+  background-color: gray;
+}
+
+navigator{
+  display: block;
+  margin: 15rpx;
+  padding: 10rpx;
+  border-radius: 5%;
+  background-color: rgb(203, 204, 255);
+  font-size: 50rpx;
+}
+text{
+  padding-top: 50rpx;
+  font-size: 50rpx;
+}
+
+image{
+  padding-top: 50rpx;
+  width:250rpx;
+  height:250rpx;
+  border-radius: 20%;
+}
