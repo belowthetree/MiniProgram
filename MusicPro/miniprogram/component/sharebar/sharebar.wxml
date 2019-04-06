@@ -1,0 +1,8 @@
+<!--component/sharebar.wxml-->
+<view class='container'>
+  <view class='userinfo'>
+    <image src="{{src}}"></image>
+    <text>{{user}}</text>
+  </view>
+  <text class='info'>{{text}}</text>
+</view>

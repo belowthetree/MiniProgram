@@ -1,0 +1,25 @@
+/* component/sharebar.wxss */
+.container{
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5rpx;
+}
+
+.userinfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width:20vw;
+  height:30vw;
+}
+image{
+  width:20vw;
+  height:20vw;
+}
+.info{
+  width:60vw;
+}

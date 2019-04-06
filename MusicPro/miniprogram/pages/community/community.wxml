@@ -1,0 +1,4 @@
+<!--miniprogram/pages/community/community.wxml-->
+<view class='container2'>
+  <sharebar src='/icons/人名.png'></sharebar>
+</view>
