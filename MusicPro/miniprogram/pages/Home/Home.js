@@ -28,6 +28,28 @@ Page({
         }
       }
     })
+    console.log("login")
+    wx.cloud.callFunction({
+      name: "login",
+      data: {},
+      success: function (res) {
+        console.log(res)
+      }
+    })
+    wx.cloud.callFunction({
+      name: "uploadCollection",
+      data: {
+        imgpath: "www.baidu.com",
+        name: "newname",
+        url: "newurl"
+      },
+      success: function (res) {
+        console.log(res)
+      },
+      fail: function (res) {
+        console.log(res)
+      },
+    })
   },
 
   /**
