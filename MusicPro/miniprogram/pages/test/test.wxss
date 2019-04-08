@@ -1,0 +1,40 @@
+/* pages/test/test.wxss */
+
+
+.hotword{
+  display:flex;
+  
+  height: 100px;
+}
+
+.hotword .user{
+margin-left: 25px;
+width: 75px;
+margin-right: 45px;
+border-radius: 50%;
+}
+.hotword .content{
+
+margin-top: 15px;
+  
+  font-size: xx-small;
+  width: 175px;
+}
+
+.hotword .pride{
+ margin-top: 15px;
+  width: 20px;
+  
+}
+
+
+.pic{
+width: 100px;
+align-content: center;
+margin-bottom: 40px;
+}
+.picf{
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+}

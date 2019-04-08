@@ -1,14 +1,18 @@
 <!--miniprogram/pages/Home/Home.wxml-->
-<view class='container'>
+<view class='container bg-img radius text-center shadow-blur' style='background-image:url("/images/主页背景.jpg")'>
   <image src='{{imgpath}}'></image>
-  <text class='text'>用户名：{{username}}</text>
+  <text class='text-lg margin'>用户名：{{username}}</text>
   <view class='ver-line'></view>
-  <view class='bar'>
-    <navigator class='text'>我的分享</navigator><view class='hor-line'></view>
-    <navigator class='text'>回复我的</navigator><view class='hor-line'></view>
-    <navigator class='text'>我的收藏</navigator>
+  <view class='bar margin-top'>
+    <view class=' radius text-center shadow-blur'><navigator>
+      <button class='text-lg cu-btn lg round margin-bottom lines-black'>我的分享</button></navigator></view>
+    <view class='margin-left margin-right margin-bottom radius text-center shadow-blur'><navigator>
+      <button class='text-lg cu-btn lg round lines-black'>回复我的</button></navigator></view>
+    <view class=' radius text-center shadow-blur margin-bottom'><navigator>
+      <button class='text-slg cu-btn lg round lines-black'>我的收藏</button></navigator></view>
   </view>
-  <view class='ver-line'></view>
-  <navigator class='text' style='margin-top:30rpx;'>登录</navigator>
-  <navigator class='text' style='margin-top:30rpx;'>切换账号</navigator>
+    <view class='margin radius text-center shadow-blur'>
+      <button class='text-slg cu-btn lg round lines-black' style='width:60vw;'bindtap='login'>登录</button></view>
+  <view class='margin radius text-center shadow-blur'>
+      <button class='text-slg cu-btn lg round lines-black'style='width:60vw;'>切换账号</button></view>
 </view>

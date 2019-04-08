@@ -7,6 +7,7 @@
 
   padding-top: 50rpx;
   align-items: center;
+
 }
 
 .bar{
@@ -14,27 +15,8 @@
   flex-direction: row;
 }
 
-.ver-line{
-  margin-top: 30rpx;
-  margin-bottom: 30rpx;
-  background-color: gray;
-  height: 3rpx;
-  width: 75%;
-}
 
-.hor-line{
-  padding-top: 30rpx;
-  height: 120rpx;
-  width: 3rpx;
-  background-color: gray;
-}
-
-text{
-  padding-top: 50rpx;
-  font-size: 50rpx;
-}
-
-navigator{
+/*navigator{
   padding-top: 30rpx;
   padding-bottom: 30rpx;
   padding-left: 10rpx;
@@ -42,13 +24,12 @@ navigator{
   display: block;
   margin: 15rpx;
   border-radius: 5%;
-  background-color:rgb(240, 240, 240);
   font-size: 50rpx;
-}
+}*/
 
 image{
   padding-top: 20rpx;
   width:250rpx;
   height:250rpx;
-  border-radius: 20%;
+  border-radius: 25%;
 }

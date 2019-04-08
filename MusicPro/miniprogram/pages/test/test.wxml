@@ -1,0 +1,16 @@
+<!--pages/test/test.wxml-->
+<view class='picf'>
+  <image src="{{pic}}" class='pic' mode='widthFix'></image>
+</view>
+
+<view>
+    <block wx:for="{{moment}}" >
+    <view  class='hotword'>
+     <image src="{{item.userurl}}"mode='widthFix' class='user' >   
+              </image>
+      <text class='content'>{{item.intro}}</text>
+      <text class='pride'>{{item.pride}}</text>
+    </view>
+  </block>
+
+</view>
