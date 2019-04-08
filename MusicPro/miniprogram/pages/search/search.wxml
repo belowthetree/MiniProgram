@@ -1,0 +1,69 @@
+<!--搜索-->
+  <view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="icon-search"></text>
+      <input type="text" placeholder="搜索音乐" confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <text class="icon-search"></text>
+    </view>
+  </view>
+<!--3个平台-->
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{3}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+      {{navbar[index]}}
+    </view>
+  </view>
+</scroll-view>
+
+
+<view class="cu-list menu-avatar">
+  <view class="cu-item">
+    <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+      <view class="content">
+        <navigator  class="text-grey" style='display: inline' url='/pages/music_index/music_index' open-type='switchTab' hover-class='nav-hover'>歌手：薛之谦</navigator>
+      </view>
+   </view>
+ </view>
+
+ <view class="flex solid-bottom padding justify-between">
+  <view class="bg-white padding-sm margin-xs radius text-black text-bold">单曲</view>
+  <view class="bg-grey padding-sm margin-xs radius">▶播放全部</view>
+ </view>
+
+<!--搜索结果-->
+
+<block wx:for="{{searchResult}}" wx:key data-item="item">
+<view class="cu-bar bg-white margin-top">
+  <view class="search-result padding solid-top">
+    <text class='margin-lr-xs' style='font-size:24px'>{{item.name}}</text>
+    <text class='margin-lr-xs'>{{item.singer}}</text>
+  </view>
+  <view  class="action">
+    <button class="cu-btn bg-white icon-{{item.icon}}" bindtap="showModal" data-target="RadioModal"></button>
+  </view>
+</view>
+</block>
+
+<view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" >
+    <radio-group class="block">
+      <view class="cu-list menu text-left">
+        <view class="cu-item" wx:for="{{musicBox}}" wx:key data-item="item">
+          <label class="flex justify-between align-center flex-sub">
+               
+              <view class="padding flex flex-direction">
+               <button class="cu-btn bg-white icon-{{item.icon}} lg text-gray">{{item.name}}</button>
+              </view>
+          </label>
+        </view>
+      </view>
+    </radio-group>
+  </view>
+</view>
+<!--下拉刷新-->
+<view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">努力加载中</view>
+</view> 

@@ -1,0 +1,43 @@
+<!--pages/list/list.wxml-->
+
+<view class='container'>
+    <image class='headimg' src='/images/linbao2.jpg'></image>
+    <text class='listname'>Sylvia's List</text>
+    <text class='username'>秋.*</text>
+
+    <image class='userimg' src='/images/linbao1.jpg'></image>
+    <view class="navbar">  
+  <text wx:for="{{navbar}}" data-idx="{{index}}" 
+class="item {{currentTab==index ? 'active' : ''}}" 
+wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+</view>
+ </view>
+<import src="/wxSearch/wxSearch.wxml"/>
+<!--search start-->
+<view class="wxSearch-section">
+   <view class="wxSearch-pancel">
+      <input bindinput="wxSearchInput" bindfocus="wxSerchFocus" 
+value="{{wxSearchData.value}}" bindblur="wxSearchBlur" 
+ class="wxSearch-input" placeholder='搜索此歌单的歌曲'/>
+      <view class="placeholder">
+        <icon class="weui-icon-search_in-box" type="search" 
+size="14"></icon> 
+      </view>  
+       
+   </view>
+   
+</view>
+
+<scroll-view scroll-y="true">
+<view class="section">
+    <button form-type="submit" plain="{{plain}}" ><text class='songname'>王菲-红豆</text></button>
+    <button form-type="submit" plain="{{plain}}"><text class='songname'>王菲-你在终点等我</text></button>
+    <button form-type="submit" plain="{{plain}}"><text class='songname'>王菲-但愿人长久</text></button>
+    <button form-type="submit" plain="{{plain}}"><text class='songname'>王菲-清平调</text></button>
+    <button form-type="submit" plain="{{plain}}"><text class='songname'>王菲-传奇</text></button>
+    <button form-type="submit" plain="{{plain}}"><text class='songname'>王菲-因为爱情</text></button>
+    <button form-type="submit" plain="{{plain}}"><text class='songname'>王菲-笑忘书</text></button>
+</view>    
+</scroll-view>
+<!--引入模板，注意 is="wxSearch" 和模板template name名称相对应-->
+<template is="wxSearch" data="{{wxSearchData}}"/>

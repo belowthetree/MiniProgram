@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/community/community",
     "pages/Home/Home",
+    "pages/search/search",
+    "pages/list/list",
+    "pages/community/community",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
