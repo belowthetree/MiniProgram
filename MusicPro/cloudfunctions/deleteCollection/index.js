@@ -11,6 +11,6 @@ exports.main = async (event, context) => {
   return await colls.where({
     openid:wxContext.OPENID,
     url:event.url
-  })
+  }).remove()
   
 }
