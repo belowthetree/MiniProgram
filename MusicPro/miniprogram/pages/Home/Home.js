@@ -10,6 +10,16 @@ Page({
     userinfo:{},
   },
 
+  getCollection:function(e){
+    wx.cloud.callFunction({
+      name:"getCollection",
+      data:{},
+      success:function(res){
+        console.log(res)
+      }
+    })
+  },
+
   login:function(e){
     // 获取用户信息
     wx.getSetting({

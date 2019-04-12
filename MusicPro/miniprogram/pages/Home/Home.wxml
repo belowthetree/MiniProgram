@@ -9,7 +9,7 @@
     <view class='margin-left margin-right margin-bottom radius text-center shadow-blur'><navigator>
       <button class='text-lg cu-btn lg round lines-black'>回复我的</button></navigator></view>
     <view class=' radius text-center shadow-blur margin-bottom'><navigator>
-      <button class='text-slg cu-btn lg round lines-black'>我的收藏</button></navigator></view>
+      <button class='text-slg cu-btn lg round lines-black' bindtap='getCollection'>我的收藏</button></navigator></view>
   </view>
     <view class='margin radius text-center shadow-blur'>
       <button class='text-slg cu-btn lg round lines-black' style='width:60vw;'bindtap='login'>登录</button></view>
