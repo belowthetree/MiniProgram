@@ -6,13 +6,11 @@ cloud.init()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  const data = event
   const db = cloud.database()
   const colls = db.collection("collections")
-  return await colls.add({
+  return await colls.where({
     openid:wxContext.OPENID,
-    url:event.url,
-    imgurl:event.imgurl,
-    name:event.name
+    url:event.url
   })
+  
 }

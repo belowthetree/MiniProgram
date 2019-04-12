@@ -20,17 +20,16 @@ exports.main = async(event, context) => {
   const user = await users.where({
     openid:wxContext.OPENID
   }).get()
-  if(user.data.length==0)
+  if(user.data.length==0){
     await users.add({
       data: {
         openid: wxContext.OPENID,
-        favourites: [{}]
       },
       success(res) {
         console.log(res)
       }
     })
-
+  }
   return {
     user,
     openid: wxContext.OPENID,
