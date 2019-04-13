@@ -1,0 +1,35 @@
+/**=========歌单============**/
+.sheets{
+  display: flex;
+  justify-content: left;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin:10px 5px;
+}
+.sheets-good{
+  height: 300rpx; 
+  width: 30%;
+  margin:0px auto;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  font-size: 24rpx;
+}
+.sheets-image{
+  width: 100%;
+  display: inline-block;
+  border: 1px #eee solid; 
+}
+.sheets-good .sheet-name{
+  color: #000;
+  height: 28px;
+  text-align:left;
+   margin: 0px 5px; 
+   margin-bottom: 5px; 
+}
+
+.cu-item{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}

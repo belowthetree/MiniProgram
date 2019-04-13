@@ -1,0 +1,61 @@
+<!--搜索-->
+  <view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="icon-search"></text>
+      <input type="text" placeholder="搜索音乐" confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <text class="icon-search"></text>
+    </view>
+  </view>
+  <!--轮播图-->
+  <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item">
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </view>
+  </swiper-item>
+</swiper>
+  <!--导航 start-->
+   <view class="flex solid-bottom padding justify-around">
+        <view class="padding-sm margin-xs radius">
+          <view class="cu-item">
+            <text class="icon-friend" style='font-size:40px'></text>
+            <text>社区</text>
+          </view>
+        </view>
+        <view class="padding-sm margin-xs radius">
+          <view class="cu-item">
+            <text class="icon-home" style='font-size:40px'></text>
+            <text>个人中心</text>
+          </view>
+        </view>
+        <view class="padding-sm margin-xs radius">
+          <view class="cu-item" >
+            <text class="icon-rank" style='font-size:40px'></text>
+            <text>排行榜</text>
+          </view>
+        </view>
+    </view>
+<!--推荐歌单 start-->
+<view class="sheet-container"> 
+  <view class="category-title">
+    <text style='font-size:20px'> 推荐歌单 ></text>
+  </view>  
+  <scroll-view scroll-y="true">
+      <view class="sheets">
+         <block wx:for-items="{{goodssheetItems}}" wx:key="name">
+          <view class="sheets-good" catchtap="catchTapCategory" data-type="{{item.name}}" data-typeid="{{item.typeId}}">
+            <view>
+              <image src="{{item.imageurl}}" class="sheets-image" mode="widthFix"/> 
+            </view>
+            <view class="sheet-name">
+              {{item.name}}
+            </view>
+          </view>
+        </block> 
+      </view>
+  </scroll-view>  
+</view> 
+
