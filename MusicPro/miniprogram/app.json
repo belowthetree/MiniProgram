@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/community/community",
     "pages/Home/Home",
     "pages/list/list",
-    "pages/community/community",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",

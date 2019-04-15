@@ -8,9 +8,8 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
   const colls = db.collection("collections")
-  return await colls.where({
-    openid:wxContext.OPENID,
-    url:event.url
-  }).remove()
   
+  return (await colls.where({
+    _id:event.id
+  }).remove(),event)
 }

@@ -10,11 +10,70 @@ Page({
     userinfo:{},
   },
 
+  getshare:function(e){
+    wx.cloud.callFunction({
+      name:"downloadShare",
+      data:{},
+      success:function(res){
+        console.log(res)
+      },
+      fail:function(res){
+        console.log(res)
+      }
+    })
+  },
+
+  share:function(e){
+    wx.cloud.callFunction({
+      name:"uploadShare",
+      data:{
+        url:"newurl",
+        name:"newname",
+        imgpth:"newimgpth"
+      },
+      success:function(res){
+        console.log(res)
+      }
+    })
+  },
+
+  uploadColl:function(e){
+    wx.cloud.callFunction({
+      name:"uploadCollection",
+      data:{
+        url:"testurl",
+        imgurl:"imgpath",
+        name:"菊花台"
+        },
+        success:function(res){
+          console.log(res)
+        },
+        fail:function(res){
+          console.log(res)
+        }
+    })
+  },
+
   getCollection:function(e){
+    var id = "3fc2c9075cb178e205794d1518154f8f"
     wx.cloud.callFunction({
       name:"getCollection",
       data:{},
       success:function(res){
+        console.log(res)
+        id = res.result.data[0]._id
+      },
+      fail:function(res){
+        console.log(res)
+      }
+    })
+    wx.cloud.callFunction({
+      name:"deleteCollection",
+      data:{id:id},
+      success:function(res){
+        console.log(res)
+      },
+      fail:function(res){
         console.log(res)
       }
     })

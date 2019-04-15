@@ -5,7 +5,7 @@
   <view class='ver-line'></view>
   <view class='bar margin-top'>
     <view class=' radius text-center shadow-blur'><navigator>
-      <button class='text-lg cu-btn lg round margin-bottom lines-black'>我的分享</button></navigator></view>
+      <button class='text-lg cu-btn lg round margin-bottom lines-black' bindtap='uploadColl'>我的分享</button></navigator></view>
     <view class='margin-left margin-right margin-bottom radius text-center shadow-blur'><navigator>
       <button class='text-lg cu-btn lg round lines-black'>回复我的</button></navigator></view>
     <view class=' radius text-center shadow-blur margin-bottom'><navigator>
@@ -14,5 +14,7 @@
     <view class='margin radius text-center shadow-blur'>
       <button class='text-slg cu-btn lg round lines-black' style='width:60vw;'bindtap='login'>登录</button></view>
   <view class='margin radius text-center shadow-blur'>
-      <button class='text-slg cu-btn lg round lines-black'style='width:60vw;'>切换账号</button></view>
+      <button class='text-slg cu-btn lg round lines-black'style='width:60vw;' bindtap='share'>上传分享</button></view>
+  <view class='margin radius text-center shadow-blur'>
+      <button class='text-slg cu-btn lg round lines-black'style='width:60vw;' bindtap='getshare'>下载分享</button></view>
 </view>
