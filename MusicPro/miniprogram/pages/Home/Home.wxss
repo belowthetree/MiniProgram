@@ -28,8 +28,8 @@
 }*/
 
 image{
-  padding-top: 20rpx;
+  margin-top: 20rpx;
   width:250rpx;
   height:250rpx;
-  border-radius: 25%;
+  border-radius: 35rpx;
 }

@@ -9,32 +9,22 @@ Page({
     pic: 'https://p1.music.126.net/_IFf2bFdhZBY8xoY6RKSQw==/109951164000212690.jpg',
     intro:"just like this",
     moment:[
-        {
-          id:0,
-          pride:2,
-          username:"小明",
-          userurl:'http://img.9553.com/uploadfile/2018/0122/20180122100558180.jpg',
-        intro:"每一次看这歌词，就会让我想起自己的故事",
-        },
-        {
-          id:1,
-          pride: 2,
-          username: "小hong",
-          userurl: 'http://img5.imgtn.bdimg.com/it/u=132472313,1581637746&fm=15&gp=0.jpg',
-          intro: "这种淡淡的旋律直击心灵，难以忘怀",
-        },
-        {
-          id:2,
-          pride: 2,
-          username: "小lan",
-          userurl: 'http://imgsrc.baidu.com/forum/w=580/sign=8d65a30af0edab6474724dc8c737af81/02a1462309f79052b1489aff07f3d7ca7acbd5a5.jpg',
-          intro: "这首歌是原创吗？",
-        },
-      
+      //这里的数据在OnLoad函数中获取
+
       ],
     comment:"",
     ownerid:"o1rPE5Ii6z3tZ5hNLOMxO6zNZVxk",
-      
+    
+  },
+
+  addStar:function(e){
+    var id = e.currentTarget.dataset.id
+    console.log(this.data.moment[id]._id)
+    var cnt = this.data.moment[id].starcount - 1 + 2
+    var st = 'moment['+id+'].starcount'
+    this.setData({
+      [st]:cnt
+    })
   },
 
 submit:function(e){
@@ -85,7 +75,7 @@ comment:function(e){
    */
   onLoad: function (options) {
     var that = this
-    wx.cloud.callFunction({
+    wx.cloud.callFunction({//这里调用云函数向服务器请求评论信息
       name:"downloadComment",
       data:{
         ownerid:that.data.ownerid
@@ -120,7 +110,17 @@ comment:function(e){
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    var that = this
+    wx.cloud.callFunction({
+      name: "updateStarCount",
+      data: {
+        starcount: that.data.moment[id].starcount,
+        id: that.data.moment[id]._id
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
   },
 
   /**

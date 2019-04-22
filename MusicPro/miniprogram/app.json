@@ -1,17 +1,11 @@
 {
   "pages": [
-    "pages/test/test",
+    "pages/shareDetail/shareDetail",
     "pages/Home/Home",
     "pages/community/community",
     "pages/music_index/music_index",
     "pages/list/list",
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/index/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

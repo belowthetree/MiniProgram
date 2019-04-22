@@ -7,7 +7,7 @@
 </view>
 
 <view>
-    <block wx:for="{{moment}}" >
+    <block wx:for="{{moment}}" wx:for-index="id" >
     <view class='padding solid-top margin-top'></view>
     <view  class='hotword'>
       <view class='user'>
@@ -15,8 +15,8 @@
         <text class='name'>{{item.username}}</text>
       </view>
       <text class='content'>{{item.text}}</text>
-      <view class='star'> 
-          <text class='icon-favorfill lg text-gray'></text>
+      <view class='star' style='display:flex;flex-direction:column;align-items:center;justify-content:space-around;'> 
+          <text data-id="{{id}}" bindtap='addStar' class='icon-favorfill lg text-gray'></text>
           <text>{{item.starcount}}</text>
       </view>
     </view>

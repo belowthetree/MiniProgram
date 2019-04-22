@@ -1,12 +1,13 @@
 // miniprogram/pages/Home/Home.js
+const app = getApp()
 Page({
-
+  
   /**
    * 页面的初始数据
    */
   data: {
-    imgpath:"../../icons/人名.png",
-    username:"孔乙己",
+    imgpath:"",
+    username: "",
     userinfo:{},
     data:"",
   },
@@ -129,6 +130,20 @@ Page({
     wx.setNavigationBarTitle({
       title: '用户界面',
     })
+    if(!app.globalData.avatar){
+      var that = this
+      wx.getUserInfo({
+        success:function(res){
+          that.setData({
+            imgpath: res.userInfo.avatarUrl,
+            username: res.userInfo.nickName,
+          })
+        }
+      })
+    }
+    
+    //console.log(this.data.imgpath)
+    //console.log(this.data.username)
   },
 
   /**

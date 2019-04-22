@@ -12,6 +12,7 @@ App({
     var that = this
     wx.getUserInfo({
       success: function (res) {
+        console.log("get")
         that.globalData={
           username:res.userInfo.nickName,
           avatar:res.userInfo.avatarUrl
