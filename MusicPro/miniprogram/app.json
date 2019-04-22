@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/community/community",
+    "pages/test/test",
     "pages/Home/Home",
+    "pages/community/community",
+    "pages/music_index/music_index",
     "pages/list/list",
     "pages/index/index",
     "pages/userConsole/userConsole",

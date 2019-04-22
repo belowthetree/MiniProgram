@@ -9,7 +9,19 @@ App({
         traceUser: true,
       })
     }
+    var that = this
+    wx.getUserInfo({
+      success: function (res) {
+        that.globalData={
+          username:res.userInfo.nickName,
+          avatar:res.userInfo.avatarUrl
+        }
+      }
+    })
 
-    this.globalData = {}
+    this.globalData = {
+      username:"none",
+      avartar:"",
+    }
   }
 })

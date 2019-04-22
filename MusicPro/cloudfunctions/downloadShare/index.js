@@ -16,7 +16,11 @@ exports.main = async (event, context) => {
   const batchTimes = Math.ceil(total / 100)
   // 承载所有读操作的 promise 的数组
   const tasks = []
-  for (let i = 0; i < batchTimes; i++) {
+  const task = db.collection('shares').where({
+    openid:wxContext.OPENID
+  }).limit(MAX_LIMIT).get()
+  tasks.push(task)
+  for (let i = 1; i < batchTimes; i++) {
     const promise = db.collection('shares').where({
       openid:wxContext.OPENID
     }).skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()

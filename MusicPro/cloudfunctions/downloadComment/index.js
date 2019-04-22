@@ -11,10 +11,18 @@ exports.main = async (event, context) => {
   const comm = db.collection("shareText")
   const count = comm.count()
   const tasks = []
-  for(let i = 0;i < count;i++){
-    const task = await comm.where({ownerid:event.id}).skip(i*MAX_LIMIT).limit(MAX_LIMIT).get()
+  const task = comm.where({
+    ownerid:event.ownerid
+  }).limit(MAX_LIMIT).get()
+  tasks.push(task)
+  for(let i = 1;i < count;i++){
+    const task = comm.where({ownerid:event.ownerid}).skip(i*MAX_LIMIT).limit(MAX_LIMIT).get()
     tasks.push(task)
   }
+  const t = await comm.where({
+    ownerid:event.ownerid
+  }).get()
 
-  return tasks
+  return (await Promise.all(tasks)).reduce((acc, cur) => ({
+      data: acc.data.concat(cur.data)}))
 }

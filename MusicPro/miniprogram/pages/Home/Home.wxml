@@ -16,5 +16,5 @@
   <view class='margin radius text-center shadow-blur'>
       <button class='text-slg cu-btn lg round lines-black'style='width:60vw;' bindtap='share'>上传分享</button></view>
   <view class='margin radius text-center shadow-blur'>
-      <button class='text-slg cu-btn lg round lines-black'style='width:60vw;' bindtap='getshare'>下载分享</button></view>
+      <button class='text-slg cu-btn lg round lines-black'style='width:60vw;' bindtap='test'>下载分享</button></view>
 </view>

@@ -8,6 +8,7 @@ Page({
     imgpath:"../../icons/人名.png",
     username:"孔乙己",
     userinfo:{},
+    data:"",
   },
 
   getshare:function(e){

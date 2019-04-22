@@ -1,0 +1,85 @@
+/* pages/test/test.wxss */
+.play{
+  z-index: 100;
+  position: absolute;
+  margin-top: 10vh;
+  border-radius: 50%;
+ width: 10vw;
+ 
+}
+
+.picf{
+ 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+   margin-bottom: 20px;
+}
+.picf .pic{
+width: 100vw;
+  align-content: center;
+}
+.picf .intro{
+  font-size:small;
+}
+
+.hotword{
+  display:flex;
+  
+  height: 100px;
+}
+
+.hotword .user{
+margin-left: 25px;
+width: 75px;
+margin-right: 20px;
+border-radius: 50%;
+
+
+}
+.hotword .user .image{
+
+width: 75px;
+margin-right: 20px;
+border-radius: 50%;
+
+}
+.hotword .user .name{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: small;
+
+}
+
+.hotword .content{
+
+margin-top: 15px;
+  
+  font-size: xx-small;
+  width: 170px;
+
+ 
+   
+
+
+
+}
+
+
+
+.hotword .star{
+  flex-direction: column;
+ margin-top: 20px;
+ margin-left: 5px;
+  width: 20px;
+  
+}
+
+
+
+
+
+
+

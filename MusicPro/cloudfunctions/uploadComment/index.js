@@ -12,10 +12,11 @@ exports.main = async (event, context) => {
   return await comm.add({
     data:{
       text:event.text,
-      ownerid:event.id,
+      ownerid:event.ownerid,
       date:db.serverDate,
       username:event.username,
-      avatar:event.avatar
+      avatar:event.avatar,
+      starcount:0
     }
   })
 }

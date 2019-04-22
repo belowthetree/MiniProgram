@@ -2,4 +2,5 @@
 <view class='container2'>
   <sharebar src='/icons/人名.png'></sharebar>
   <button bindtap='test'>测试按钮</button>
+  
 </view>
