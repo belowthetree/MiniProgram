@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    avatar:"",
+    username:"",
     id:"",
     pic: 'https://p1.music.126.net/_IFf2bFdhZBY8xoY6RKSQw==/109951164000212690.jpg',
     intro:"just like this",
@@ -28,6 +30,8 @@ Page({
   },
 
 submit:function(e){
+  if(this.data.comment=="")
+    return
   var that = this
   var app = getApp()
   wx.cloud.callFunction({
@@ -39,7 +43,18 @@ submit:function(e){
       avatar: app.globalData.avatar,
     },
     success:function(res){
-      console.log(res)
+      console.log(that.data.avatar)
+      console.log(that.data.username)
+      that.data.moment.push({
+        avatar: that.data.avatar,
+        username: that.data.username,
+        starcount: 0,
+        text: that.data.comment
+      })
+      that.setData({
+        moment:that.data.moment,
+        comment:""
+      })
     },
     fail:function(res){
       console.log(res)
@@ -75,6 +90,14 @@ comment:function(e){
    */
   onLoad: function (options) {
     var that = this
+    wx.getUserInfo({
+      success:function(res){
+        that.setData({
+          avatar: res.userInfo.avatarUrl,
+          username: res.userInfo.nickName
+        })
+      }
+    })
     wx.cloud.callFunction({//这里调用云函数向服务器请求评论信息
       name:"downloadComment",
       data:{
