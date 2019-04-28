@@ -19,6 +19,12 @@ Page({
     
   },
 
+  change:function(e){
+    this.setData({
+      comment:e.detail.value
+    })
+  },
+
   addStar:function(e){
     var id = e.currentTarget.dataset.id
     console.log(this.data.moment[id]._id)
@@ -30,8 +36,10 @@ Page({
   },
 
 submit:function(e){
-  if(this.data.comment=="")
+  if(this.data.comment==""){
+    console.log("无评论")
     return
+  }
   var that = this
   var app = getApp()
   wx.cloud.callFunction({
@@ -62,11 +70,6 @@ submit:function(e){
   })
 },
 
-comment:function(e){
-  this.setData({
-    comment:e.detail.value
-  })
-},
 
   mainHandler: function () {
     var that = this;
@@ -106,7 +109,8 @@ comment:function(e){
       success:function(res){
         console.log(res)
         that.setData({
-          moment:res.result.data
+          moment:res.result.data,
+          comment:""
         })
       },
       fail:function(res){
