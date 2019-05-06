@@ -1,0 +1,172 @@
+/* pages/list/list.wxss */
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 678rpx;
+  
+}
+.comment{
+  position: absolute;
+  left: 630rpx;
+  top: 410rpx;
+  width: 70rpx;
+  height: 70rpx;
+  background-image: url('https://i.loli.net/2019/05/02/5ccab54bbd848.png');
+  background-size: 100% 100%;
+}
+
+.times{
+  position: absolute;
+  top: 400rpx;
+  color: wheat;
+}
+.popular{
+  position: absolute;
+  font-size: 80rpx;
+  letter-spacing: 12rpx;
+  color: wheat;
+}
+.topimg{
+  position: absolute;
+  top: 0rpx;
+}
+.img3{
+  width: 750rpx;
+  height: 500rpx;
+}
+ .navbar{  
+  position: absolute; 
+  display: flex;  
+  background: #fff;  
+  top: 500rpx;
+  width: 800rpx;
+  height: 80rpx;
+  border-width: 4rpx 0rpx 4rpx 0rpx;
+  box-shadow: 0rpx 0rpx 0rpx 0.2rpx #d3d3d3 inset;
+}  
+.navbar .item{  
+  position: relative;  
+  flex: auto;  
+  text-align: center;  
+  line-height: 80rpx;  
+  font-size:14px;
+  letter-spacing: 12rpx;
+
+}  
+/* 顶部导航字体颜色 */
+.navbar .item.active{  
+   color: #a6a5c4;
+  
+}  
+/* 顶部指示条属性 */
+.navbar .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  height: 5rpx;  
+  background: #a6a5c4;  
+  width: 70%;
+  margin: 0px auto;
+}
+.allplay{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 380rpx;
+  width: 800rpx;
+  height: 100rpx;
+  border-width: 4rpx 0rpx 4rpx 0rpx;
+  box-shadow: 0rpx 0rpx 0rpx 0.2rpx #d3d3d3 inset;
+}
+
+.pause{
+  position: relative;
+  left: 90rpx;
+  top: 16rpx;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 100%;
+  background-image: url('https://i.loli.net/2019/05/02/5cca861c78fea.png');
+  background-size: 100% 100%;
+}
+.playing{
+  position: relative;
+  font-size: 35rpx;
+  top: 24rpx;
+  left: 110rpx;
+}
+
+.list{
+  position: relative;
+  left: 390rpx;
+  top: 16rpx;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 100%;
+  background-image: url('https://i.loli.net/2019/05/02/5cca913913af1.png');
+  background-size: 100% 100%;
+}
+.songlist{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  width: 800rpx;
+ 
+  
+}
+.songs{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100rpx;
+  
+  border-width: 4rpx 0rpx 4rpx 0rpx;
+  box-shadow: 0rpx 0rpx 0rpx 0.2rpx #d3d3d3 inset;
+  
+  
+}
+.singers{
+  position: relative;
+  left: 120rpx;
+  top: 11rpx;
+  font-size: 26rpx;
+  font-weight: lighter;
+}
+.names{
+  position: relative;
+  top: 9rpx;
+  left: 120rpx;
+  font-size: 36rpx;
+  font-weight: normal;
+}
+.upicon{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 20rpx;
+  top: -16rpx;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 100%;
+  background-image: url('https://i.loli.net/2019/05/02/5ccabbadd0261.png');
+  background-size: 100% 100%;
+}
+.hot{
+  position: relative;
+  font-size: 23rpx;
+  left: 30rpx;
+  top: -8rpx;
+  color: #bfbfbf;
+}
+.rank{
+  position: absolute;
+  top: -52rpx;
+  left: 7rpx;
+  font-size: 38rpx;
+  font-style: italic;
+}
