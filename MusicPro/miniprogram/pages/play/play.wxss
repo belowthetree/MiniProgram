@@ -1,0 +1,30 @@
+/* pages/play/play.wxss
+.container{
+  display: flex;
+  flex-direction: column;
+  background-color: #d9e5e3;
+  height: 1200rpx;
+ 
+}
+.songnameview{
+  position: relative;
+  top: -130rpx;
+  
+}
+.disk{
+  position: relative;
+  width: 600rpx;
+  height: 600rpx;
+  border-radius: 50%;
+  background-color: red;
+}
+.playslider{
+ margin-top: 50rpx;
+ margin-left: 50rpx;
+}
+.controlplay{
+  display: flex;
+  flex-direction: row;
+}
+
+ */
