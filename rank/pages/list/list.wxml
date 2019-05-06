@@ -1,0 +1,45 @@
+<!--pages/list/list.wxml-->
+
+<view class='container'>
+<view class='comment' bindtap='comm'></view>
+<text class='popular'>流行指数</text>
+<text class='times'> 2019-05-02更新</text>
+  <view class='topimg'> <!--顶部图片-->
+    <image class='img3' src='/images/img2.jpg' style='opacity:{{0.3}}'></image>
+  </view>
+
+ <!-- 歌曲与详情页的导航-->
+  <view class="navbar">  
+     <text wx:for="{{navbar}}" data-idx="{{index}}" 
+  class="item {{currentTab==index ? 'active' : ''}}" 
+  wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+  </view>
+
+<!--全部播放-->
+  <view class='allplay'> 
+   <!--   <button class='pause'  size="{{defaultSize}}" loading="{{loading}}" plain='true' disabled="{{disabled}}"
+  bindtap="playmusic" hover-class="other-button-hover"  ></button> -->
+    <view class='pause' bindtap='playmusic'></view> <!--播放按钮-->
+    <text class='playing'>全部播放</text>
+    <view class='list' bindtap='operatelist'></view>
+   </view>
+</view>
+
+<!--歌单列表部分-->
+<scroll-view scroll-y="true">
+    <view class='songlist' wx:for="{{songsname}}" wx:for-index="idx" wx:for-item="item" bindtap='clickmusic'> <view class='songs'><text class='names'>  {{item.name}}</text> <text class='singers'> {{item.singer}}</text>
+     <view class='upicon'><text class='rank'>{{idx+1}} </text> <text class='hot'>{{item.hot}}</text> </view> </view> </view>
+  </scroll-view>
+ 
+
+           
+
+
+
+
+
+
+
+
+
+
