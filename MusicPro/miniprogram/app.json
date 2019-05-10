@@ -15,6 +15,31 @@
     "navigationBarTitleText": "云开发 QuickStart",
     "navigationBarTextStyle": "black"
   },
+  "tabBar":{
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "black",
+    "list":[
+      {
+        "pagePath":"pages/Home/Home",
+        "selectedIconPath": "/images/icon/home-selected.png",
+        "iconPath": "/images/icon/home.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/music_index/music_index",
+        "selectedIconPath": "/images/icon/listen-selected.png",
+        "iconPath": "/images/icon/listen.png",
+        "text": "音乐"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "selectedIconPath": "/images/icon/community-selected.png",
+        "iconPath": "/images/icon/community.png",
+        "text": "社区"
+      }
+    ]
+  },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
   },

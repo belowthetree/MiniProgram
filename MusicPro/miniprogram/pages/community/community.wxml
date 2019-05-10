@@ -1,6 +1,20 @@
-<!--miniprogram/pages/community/community.wxml-->
-<view class='container2'>
-  <sharebar src='/icons/人名.png'></sharebar>
-  <button bindtap='test'>测试按钮</button>
-  
+<!--pages/test2/test2.wxml-->
+<view class='container'>
+<view class='f'>
+    <text class='cu-btn round bg-orange' style=''>分享歌曲</text>
+    <text class='cu-btn round bg-orange' style=''>我的分享</text>
+    <text class='cu-btn round bg-orange' style=''>我的收藏</text>
+</view>
+
+
+<scroll-view scroll-y class='view'>
+<view class='blo' wx:for="{{moment}}">
+  <image class="pic" src="{{item.userurl}}"    ></image>  
+  <view class='little'>
+      <text class='intro'>{{item.intro}}</text>
+      <text class='content'>{{item.content}}</text>
+  </view>
+
+ </view>
+</scroll-view>
 </view>

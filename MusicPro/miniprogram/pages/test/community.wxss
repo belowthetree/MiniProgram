@@ -1,0 +1,11 @@
+/* miniprogram/pages/community/community.wxss */
+.container{
+  width:90vw;
+}
+
+.btn{
+  background-color:rgb(226, 226, 226);
+  width:100%;
+  height:10vh;
+  margin-top: 15rpx;
+}
