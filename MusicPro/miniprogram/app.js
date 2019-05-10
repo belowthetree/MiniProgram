@@ -1,5 +1,10 @@
 //app.js
 App({
+  data:{
+    songIndex:'0',
+    listIndex:'2',
+    songlist: [],
+  },
   onLaunch: function () {
     
     if (!wx.cloud) {

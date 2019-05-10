@@ -1,0 +1,22 @@
+<view class='container'>
+  <view class='songnameview'> <text class='name'>王菲-红豆</text></view>
+  <view class='disk'></view>
+<!--进度条-->
+  <view class='playslider'>
+   <slider block-size='12' bindchange='audioChange' activeColor='#79c06e' bindchanging='audioChanging' value='{{sliderValue}}'></slider>
+  </view>
+
+<!--播放控制区域-->
+  <view class='controlplay'>
+<!--上一首按钮-->
+   <view class='lastview' bindtap='lastSong'> 上一首</view>
+  <!--播放/暂停按钮-->
+   <view class='pauseview' bindtap='pauseSong'> 暂停</view>
+<!--下一首按钮-->
+   <view class='nextview' bindtap='nextSong'> 下一首</view>
+     <view class='nextview' bindtap='addLike'> 收藏</view>
+<view class='nextview' bindtap='choseOrder'> 随机</view>
+
+ 
+  </view>
+</view>

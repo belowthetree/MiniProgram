@@ -23,7 +23,7 @@
 </view>
 </view>
 <view class='cu-bar input foot' style='position:fixed;bottom:0;width:100vw;'>
-<input type='text' id='comment' placeholder='我想说.....' bindblur='comment'></input>
+<input type='text' id='comment' placeholder='我想说.....' value='{{comment}}' bindblur='change' data-name='comment'></input>
 <button type='button' class='cu-btn' style='width:15vw;' bindtap='submit'>评论</button>
 </view>
 

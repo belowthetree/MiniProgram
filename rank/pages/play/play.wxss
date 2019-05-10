@@ -1,0 +1,76 @@
+/* pages/play/play.wxss */
+.container{
+  display: flex;
+  flex-direction: column;
+  background-color: #d9e5e3;
+  height: 1200rpx;
+ 
+}
+.songnameview{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -190rpx;
+  align-items: center;
+  
+}
+.name{
+  font-size:48rpx; 
+}
+.singer{
+  position: relative;
+  top: 20rpx;
+  font-size: 40rpx;
+}
+.disk{
+  position: relative;
+  top: -130rpx;
+  width: 500rpx;
+  height: 500rpx;
+  border-radius: 50%;
+  background-color: red;
+}
+.playslider{
+ position: relative;
+ width: 600rpx;
+ top: -80rpx;
+}
+.controlplay{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.lastview{
+   position: relative;
+   left: -120rpx;
+  width: 70rpx;
+  height: 70rpx;
+  background-image: url('https://i.loli.net/2019/05/02/5ccaf1e943e3a.png');
+  background-size: 100% 100%;
+}
+.pauseview{
+  position: relative;
+  width: 70rpx;
+  height: 70rpx;
+  
+}
+
+.played{ 
+ 
+  background-image: url('https://i.loli.net/2019/05/02/5ccaf186bf1b3.png');
+  background-size: 100% 100%;
+ }
+.normal{ 
+
+  background-image: url('https://i.loli.net/2019/05/05/5cce5ca053e9f.png');
+    background-size: 100% 100%;
+}
+
+.nextview{
+   position: relative;
+   left: 120rpx;
+  width: 70rpx;
+  height: 70rpx;
+  background-image: url('https://i.loli.net/2019/05/02/5ccaf267d6953.png');
+  background-size: 100% 100%;
+}

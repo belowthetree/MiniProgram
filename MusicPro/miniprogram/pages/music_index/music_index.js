@@ -1,100 +1,89 @@
 Page({
   data: {
     cardCur: 0,
-
-    swiperList: [{
-      id: 0,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
-    }, {
-      id: 1,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
-    }, {
-      id: 2,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
-    }, {
-      id: 3,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
-    }, {
-      id: 4,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
-    }, {
-      id: 5,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
-    }, {
-      id: 6,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
-    }],
-    // 福利专场
-    goodssheetItems: [
+    input: null,
+    // 
+    recsheetItems: [
       {
-        goodId: 0,
-        name: 'FUTURE BASS ¡ 漂浮在霓虹世界',
-        url: 'bill',
-        imageurl: '/images/timg.jpg'
+        id: 0,
+        name: 'QQ音乐排行榜',
+        url: '../search/search',
+        imageurl: '/images/icon/qq.jpg'
       },
       {
-        goodId: 1,
-        name: 'FUTURE BASS ¡ 漂浮在霓虹世界',
-        url: 'bill',
-        imageurl: '/images/timg.jpg'
+        id: 1,
+        name: '网易云音乐排行榜',
+        url: '2',
+        imageurl: '/images/icon/wy.jpg'
       },
       {
-        goodId: 2,
-        name: 'FUTURE BASS ¡ 漂浮在霓虹世界',
-        url: 'bill',
-        imageurl: '/images/timg.jpg'
-      },
-      {
-        goodId: 3,
-        name: 'FUTURE BASS ¡ 漂浮在霓虹世界',
-        url: 'bill',
-        imageurl: '/images/timg.jpg'
-      },
-      {
-        goodId: 4,
-        name: 'FUTURE BASS ¡ 漂浮在霓虹世界',
-        url: 'bill',
-        imageurl: '/images/timg.jpg'
-      }, {
-        goodId: 5,
-        name: 'FUTURE BASS ¡ 漂浮在霓虹世界',
-        url: 'bill',
-        imageurl: '/images/timg.jpg'
-      }
-      , {
-        goodId: 6,
-        name: 'FUTURE BASS ¡ 漂浮在霓虹世界',
-        url: 'bill',
-        imageurl: '/images/timg.jpg'
-      }
-      , {
-        goodId: 7,
-        name: 'FUTURE BASS ¡ 漂浮在霓虹世界',
-        url: 'bill',
-        imageurl: '/images/timg.jpg'
-      }
-      , {
-        goodId: 8,
-        name: 'FUTURE BASS ¡ ',
-        url: 'bill',
-        imageurl: '/images/timg.jpg'
+        id: 2,
+        name: '酷我音乐排行榜',
+        url: '3',
+        imageurl: '/images/icon/kw.jpg'
       }
     ]
   },
-  onLoad() {
-    this.towerSwiper('swiperList');
-    // 初始化towerSwiper 传已有的数组名即可
+  onLoad: function (options) {
+    var that = this;
+    wx.request({
+      url: 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        //将获取到的json数据，存在名字叫zhihu的这个数组中
+        that.setData({
+          swiperList: res.data.data.slider,
+          //创建并赋值，res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
+        })
+      }
+    })
+  },
+  onTouchSwiper: function(event){   //轮播图跳转外部链接，不支持
+    wx.setStorage({
+      key: "swiperLinkUrl",
+      data: this.data.swiperList[this.data.cardCur].linkUrl
+    })
+    wx.navigateTo({
+      url: '../link/link', //
+      success: function () {
+
+      },       //成功后的回调；
+
+      fail: function () { },         //失败后的回调；
+
+      complete: function () { }      //结束后的回调(成功，失败都会执行)
+
+    })
+  },
+  onTouchSearch: function(e){
+    wx.setStorage({   //缓存内容
+      key: "searchValue",
+      data: this.data.input
+    })
+    if(this.data.input){
+      wx.navigateTo({   //跳转
+        url: '../search/search',
+      })
+    }
+  },
+  getInput: function (e) {//获取输入框的内容
+    this.setData({
+      input : e.detail.value
+    })
+    console.log(this.data.input)
   },
   DotStyle(e) {
     this.setData({
       DotStyle: e.detail.value
+    })
+  },
+  catchTapCategory : function(e){   //排行榜跳转
+    console.log(e.currentTarget.dataset.url);
+    var linkUrl = e.currentTarget.dataset.url;
+    wx.navigateTo({   //跳转
+      url: linkUrl,
     })
   },
   // cardSwiper
