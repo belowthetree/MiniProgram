@@ -15,6 +15,7 @@
 <!--下一首按钮-->
    <view class='nextview' bindtap='nextSong'> 下一首</view>
      <view class='nextview' bindtap='addLike'> 收藏</view>
+<view class='nextview' bindtap='choseOrder'> 随机</view>
 
  
   </view>
