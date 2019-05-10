@@ -1,6 +1,6 @@
 // pages/list/list.js
 const app = getApp();
-
+const time=new Date();
 var util = require('../../utils/util.js')
 const innerAudioContext = wx.createInnerAudioContext()
 Page({
@@ -14,7 +14,8 @@ Page({
     onplay: true,
     songlist : [],
     url_ye:'',
-    idx:1
+    year: time.getMonth,
+    month:time.getDate,
   },
   
     SetSize(e) {
@@ -71,8 +72,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // dataNow = util.formatTime(new Data());
+    
       var that = this;
+      var TIME = new Date();
+      // util.formatTime(new Data());
+      that.setData({time:TIME,});
     console.log(app.data.listIndex)
       if(app.data.listIndex == 1){
         that.setData({
@@ -94,7 +98,7 @@ Page({
         dataType: 'json',
         success: function (res) {
           app.data.songlist= res.data.data.songs
-          console.log(app.data.songlist)
+          console.log(res)
           that.setData({
             songlist: res.data.data.songs
           })

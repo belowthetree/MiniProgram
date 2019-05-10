@@ -3,7 +3,7 @@
 <view class='container'>
 <view class='comment' bindtap='comm'></view>
 <text class='popular'>流行指数</text>
-<text class='times'> {{dataNow}} 更新</text>
+<text class='times'> {{year}}{{month}} 更新</text>
   <view class='topimg'> <!--顶部图片-->
     <image class='img3' src='/images/img2.jpg' style='opacity:{{0.3}}'></image>
   </view>
