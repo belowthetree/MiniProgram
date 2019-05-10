@@ -12,6 +12,8 @@
 	"appid": "wxc9129f345ee4e3ed",
 	"projectname": "MusicPro",
 	"libVersion": "2.6.1",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

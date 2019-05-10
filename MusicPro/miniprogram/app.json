@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/Home/Home",
+    "pages/shareDetail/shareDetail",
     "pages/list/list",
     "pages/play/play",
-    "pages/shareDetail/shareDetail",
-    "pages/Home/Home",
     "pages/community/community",
     "pages/music_index/music_index",
     "pages/index/index"
@@ -17,5 +17,6 @@
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
