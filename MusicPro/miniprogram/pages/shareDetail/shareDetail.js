@@ -16,8 +16,52 @@ Page({
       ],
     comment:"",
     ownerid:"o1rPE5Ii6z3tZ5hNLOMxO6zNZVxk",
-    
+    isPlayingMusic: false,
+    button: "../images/pause2.jpg",
   },
+  play: function (event) {
+
+    var isPlayingMusic = this.data.isPlayingMusic + 1
+    if (isPlayingMusic % 2 == 1) {
+      this.setData({
+        button: "../images/pause2.jpg",
+        isPlayingMusic: isPlayingMusic
+      })
+      // wx.pauseBackgroundAudio();
+      // 设置setData值，前端界面才能读取到isPlayingMusic是值，以下同理
+
+    } else {
+      this.setData({
+        button: '../images/play.jpg',
+        isPlayingMusic: isPlayingMusic
+      })
+    }
+  },
+  onMusicTap: function (event) {
+
+    var isPlayingMusic = this.data.isPlayingMusic;
+    console.log(isPlayingMusic);
+    if (isPlayingMusic) {
+      wx.pauseBackgroundAudio();
+      // 设置setData值，前端界面才能读取到isPlayingMusic是值，以下同理
+      this.setData({
+        isPlayingMusic: false
+      })
+
+      console.log("pauseBackgroundAudio");
+    } else {
+      wx.playBackgroundAudio({
+        dataUrl: 'http://music.163.com/song/media/outer/url?id=574919767.mp3',
+        title: '不要平凡',
+        coverImgUrl: '',
+
+      })
+      this.setData({
+        isPlayingMusic: true
+      })
+    }
+  },
+  
 
   addStar:function(e){
     var id = e.currentTarget.dataset.id

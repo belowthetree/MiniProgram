@@ -1,18 +1,17 @@
 <!--pages/test/test.wxml-->
 <view class='container' style='margin-bottom:9vh;'>
-<view class='picf'>
-  <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555767545236&di=dabcf7a6a84f2bcc7cbf6afb3a204265&imgtype=0&src=http%3A%2F%2Fpic.51yuansu.com%2Fpic2%2Fcover%2F00%2F36%2F07%2F5811c0a691ec8_610.jpg' class='play' mode='widthFix' ></image>
+  <view class='picf'>
+  <image src="{{button}}" catchtap='play' class='play' mode='widthFix' ></image>
   <image src="{{pic}}" class='pic' mode='widthFix'></image>
   <text class='intro'>{{intro}}</text>
 </view>
-
 <view>
     <block wx:for="{{moment}}" wx:for-index="id" >
-    <view class='padding solid-top margin-top'></view>
-    <view  class='hotword'>
+      <view class='padding solid-top margin-top'></view>
+      <view  class='hotword'>
       <view class='user'>
-        <image src="{{item.avatar}}"mode='widthFix' class='image' ></image>
-        <text class='name'>{{item.username}}</text>
+      <image src="{{item.avatar}}"mode='widthFix' class='image' ></image>
+      <text class='name'>{{item.username}}</text>
       </view>
       <text class='content'>{{item.text}}</text>
       <view class='star' style='display:flex;flex-direction:column;align-items:center;justify-content:space-around;'> 
