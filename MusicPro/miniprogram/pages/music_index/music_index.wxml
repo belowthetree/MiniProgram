@@ -41,15 +41,14 @@
 <!--推荐榜单 start-->
 <view class="sheet-container"> 
   <view class="category-title">
-    <text style='font-size:20px'> 排行榜 > </text>
+    <text style='font-size:20px'> 推荐歌单 > </text>
   </view>  
   <scroll-view scroll-y="true">
       <view class="sheets">
          <block wx:for-items="{{recsheetItems}}" wx:key="name">
-          <view class="sheets-good" catchtap="catchTapCategory" data-type="{{item.name}}" data-url="{{item.url}}">
+          <view class="sheets-good" catchtap="catchTapCategory" data-type="{{item.name}}" data-id="{{item.content_id}}">
             <view>
-              <image src="{{item.imageurl}}" class="sheets-image" mode="widthFix"/> 
-              <text>{{item.name}}</text>
+              <image src="{{item.cover}}" class="sheets-image" mode="widthFix"/> 
             </view>
             <view class="sheet-name">
               {{item.title}}
