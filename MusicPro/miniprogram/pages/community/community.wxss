@@ -19,15 +19,11 @@
   padding-left: 20rpx;
 }
 
-
 .cu-btn{
 
 margin-top: 10px;
 margin-left: 0;
 }
-
-
-
 
 .view{
   width: 75vw;
@@ -46,7 +42,6 @@ margin-left: 0;
   flex-direction: row;
   align-items: center; 
 }
-
 
 .pic{
  height: 20vw;

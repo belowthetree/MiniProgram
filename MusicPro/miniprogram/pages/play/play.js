@@ -19,6 +19,7 @@ Page({
 
       },
       success: function (res) {
+        console.log(res)
         wx.showToast({
           title: '添加成功',
           duration: 1000,
