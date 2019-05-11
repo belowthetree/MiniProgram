@@ -94,7 +94,7 @@ Page({
   catchTapCategory : function(e){   //歌单跳转
     console.log(e.currentTarget.dataset.id);  //获取歌单id
     wx.navigateTo({   //跳转
-      url: '../list/list?sheetId=' + e.currentTarget.dataset.id,
+      url: '../list/list?listId=' + e.currentTarget.dataset.id,
     })
   },
   // cardSwiper
