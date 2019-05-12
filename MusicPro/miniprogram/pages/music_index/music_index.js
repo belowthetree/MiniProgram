@@ -2,7 +2,6 @@ Page({
   data: {
     cardCur: 0,
     input: null,
-    loading:true,
     // 
     recsheetItems: [
       /*{
@@ -26,9 +25,6 @@ Page({
     ]
   },
   onLoad: function (options) {
-    wx.showLoading({
-      title: '加载中',
-    })
     var that = this;
     wx.request({
       url: 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg',
@@ -36,11 +32,8 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
-
-        wx.hideLoading()
         //将获取到的json数据，存在数组中
         that.setData({
-          loading:false,
           swiperList: res.data.data.slider,
           //创建并赋值，res代表success函数的事件对，data是固定的
         })

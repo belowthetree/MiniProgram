@@ -11,8 +11,7 @@ Page({
     searchResult:null,
     tencentResult:null,
     neteaseResult:null,
-    kugouResult:null,
-    list:null
+    kugouResult:null
   },
   tabSelect(e) {
     this.setData({
