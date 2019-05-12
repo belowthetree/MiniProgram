@@ -1,0 +1,66 @@
+<view class='container'>
+  <view class='songnameview'> <text class='name'>{{name}}</text> <text class='singer'>{{singer}}</text></view>
+
+<swiper class="middle" indicator-dots='{{true}}' previous-margin="0rpx" next-margin="0rpx"
+   current='{{currentIndex}}' style="height: 700rpx" bindchange="changeDot">
+      <!--转盘-->
+        <swiper-item class="middle-l" style="overflow: visible">
+            <view class="cd-inner cd-animation">
+                <image class="cd-img" src="{{playingMusic.img}}"></image>
+ </view>
+        </swiper-item>
+        <!--歌词-->
+        <swiper-item class="middle-r">
+          <scroll-view class="lyric-wrapper" scroll-y scroll-into-view="line{{toLineNum}}" scroll-with-animation>
+              <view v-if="currentLyric">
+              <view ref="lyricLine"
+                    id="line{{index}}"
+                    class="text {{currentLineNum == index ? 'current': '' }}"
+                    wx:for="{{currentLyric.lines}}">{{item.txt}}
+              </view>
+            </view>
+            <view wx:if="{{!currentLyric}}">
+              <view class="text current">暂无歌词</view>
+            </view>
+           
+          </scroll-view>
+        </swiper-item>
+
+</swiper>
+
+
+ 
+<!--进度条-->
+ <!-- <view class='playslider'>
+  <slider block-size='12' bindchange='audioChange' activeColor='#79c06e' bindchanging='audioChanging' value='{{sliderValue}}' ></slider> 
+  </view>--> 
+<view class='audiosBox'>
+ <!--   <view class="audioOpen" bindtap="listenerButtonPlay" wx:if="{{!isOpen}}">
+    </view>
+    <view class="audioOpen" bindtap="listenerButtonPause" wx:if="{{isOpen}}">
+    </view>--> 
+    <view class="{{iscollect?'collect':'collected'}}" bindtap="collectmusic"></view>
+    <view class='slid'>
+      <slider bindchange="sliderChange"  block-size="12px" step="2" value="{{offset}}" max="{{max}}" selected-color="#4c9dee" />
+      <view>
+        <text class='times'>{{starttime}}</text> <!-- 进度时长 -->
+       
+        <text class='times'>{{duration}}</text>   <!-- 总时长 -->
+      </view>
+    </view>
+</view>
+<!--播放控制区域-->
+  <view class='controlplay'>
+<!--上一首按钮-->
+   <view class='lastview '> </view>
+  <!--播放/暂停按钮-->
+ <!-- <view class="pauseview {{isplayed}}" bindtap="playaction" > </view>--> 
+ <view class="{{isplayed?'played':'normal'}}" bindtap="listenerButtonPlay"></view>
+<!--下一首按钮-->
+   <view class='nextview'> </view>
+   <view class="{{isorder?'shuffle':'order'}}" bindtap="playorder"></view>
+  </view>
+</view>
+
+
+
