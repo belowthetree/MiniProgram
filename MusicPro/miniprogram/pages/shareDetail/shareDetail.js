@@ -147,9 +147,13 @@ submit:function(e){//用于用户提交评论
    */
   onLoad: function (options) {
     //这里设置歌曲信息
-    //this.setMusic(options.title, options.coverImgUrl, options.singer, options.epname, options.src)
-    this.setMusic("此时此刻", "http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000", "许巍", "此时此刻", "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46")
+    console.log(options)
+    this.setMusic(decodeURIComponent(options.title), decodeURIComponent(options.coverImgUrl), decodeURIComponent(options.singer), decodeURIComponent(options.epname), decodeURIComponent(options.src))//参数传过来的时候经过了编码，这里需要转码
+
+
+    //this.setMusic("此时此刻", "http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000", "许巍", "此时此刻", "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46")
     //下面获取用户信息
+
     var that = this
     wx.getUserInfo({
       success:function(res){
@@ -181,7 +185,7 @@ submit:function(e){//用于用户提交评论
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    bgManager.pause()
   },
 
   /**

@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/community/community",
     "pages/shareDetail/shareDetail",
     "pages/list/list",
     "pages/play/play",
     "pages/Home/Home",
-    "pages/community/community",
     "pages/music_index/music_index",
     "pages/index/index"
   ],
