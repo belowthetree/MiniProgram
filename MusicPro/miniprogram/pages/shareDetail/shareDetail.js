@@ -1,4 +1,6 @@
 // pages/test/test.js
+
+const bgManager = wx.getBackgroundAudioManager()
 Page({
 
   /**
@@ -17,28 +19,36 @@ Page({
     comment:"",
     ownerid:"o1rPE5Ii6z3tZ5hNLOMxO6zNZVxk",
     isPlayingMusic: false,
-    button: "../images/pause2.jpg",
+    button: "../images/play.jpg",
   },
-  play: function (event) {
 
-    var isPlayingMusic = this.data.isPlayingMusic + 1
-    if (isPlayingMusic % 2 == 1) {
+setMusic:function(title, coverImgUrl, singer, epname, src){
+  bgManager.title = title
+  bgManager.coverImgUrl = coverImgUrl
+  bgManager.singer = singer
+  bgManager.src = src
+  bgManager.epname = epname
+},
+
+  play: function (event) {
+    this.data.isPlayingMusic = !this.data.isPlayingMusic
+    if (this.data.isPlayingMusic) {
+      bgManager.play()
       this.setData({
         button: "../images/pause2.jpg",
-        isPlayingMusic: isPlayingMusic
       })
       // wx.pauseBackgroundAudio();
       // 设置setData值，前端界面才能读取到isPlayingMusic是值，以下同理
-
     } else {
+      bgManager.pause()
       this.setData({
         button: '../images/play.jpg',
-        isPlayingMusic: isPlayingMusic
       })
     }
   },
-  onMusicTap: function (event) {
 
+
+  onMusicTap: function (event) {
     var isPlayingMusic = this.data.isPlayingMusic;
     console.log(isPlayingMusic);
     if (isPlayingMusic) {
@@ -63,13 +73,13 @@ Page({
   },
   
 
-  change:function(e){
+  change:function(e){//用于将自己的评论内容加载到数据中
     this.setData({
       comment:e.detail.value
     })
   },
 
-  addStar:function(e){
+  addStar:function(e){//用于点赞数的增加
     var id = e.currentTarget.dataset.id
     console.log(this.data.moment[id]._id)
     var cnt = this.data.moment[id].starcount - 1 + 2
@@ -79,7 +89,7 @@ Page({
     })
   },
 
-submit:function(e){
+submit:function(e){//用于用户提交评论
   if(this.data.comment==""){
     console.log("无评论")
     return
@@ -136,6 +146,10 @@ submit:function(e){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //这里设置歌曲信息
+    //this.setMusic(options.title, options.coverImgUrl, options.singer, options.epname, options.src)
+    this.setMusic("此时此刻", "http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000", "许巍", "此时此刻", "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46")
+    //下面获取用户信息
     var that = this
     wx.getUserInfo({
       success:function(res){

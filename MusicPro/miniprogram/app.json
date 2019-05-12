@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/shareDetail/shareDetail",
     "pages/list/list",
     "pages/play/play",
     "pages/Home/Home",
-    "pages/shareDetail/shareDetail",
     "pages/community/community",
     "pages/music_index/music_index",
     "pages/index/index"
