@@ -5,6 +5,9 @@
   <image src="{{pic}}" class='pic' mode='widthFix'></image>
   <text class='intro'>{{intro}}</text>
 </view>
+<!--以上为分享的歌曲信息-->
+
+<!--接下来为评论部分-->
 <view>
     <block wx:for="{{moment}}" wx:for-index="id" >
       <view class='padding solid-top margin-top'></view>
