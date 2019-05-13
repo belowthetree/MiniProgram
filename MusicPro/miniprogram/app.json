@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/music_index/music_index",
+    "pages/search/search",
     "pages/list/list",
     "pages/play/play",
     "pages/Home/Home",
     "pages/shareDetail/shareDetail",
     "pages/community/community",
-    "pages/music_index/music_index",
     "pages/index/index"
   ],
   "window": {
@@ -21,13 +22,13 @@
     "borderStyle": "black",
     "list":[
       {
-        "pagePath":"pages/Home/Home",
+        "pagePath":"pages/music_index/music_index",
         "selectedIconPath": "/images/icon/home-selected.png",
         "iconPath": "/images/icon/home.png",
         "text": "主页"
       },
       {
-        "pagePath": "pages/music_index/music_index",
+        "pagePath": "pages/Home/Home",
         "selectedIconPath": "/images/icon/listen-selected.png",
         "iconPath": "/images/icon/listen.png",
         "text": "音乐"
