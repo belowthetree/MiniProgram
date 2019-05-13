@@ -39,7 +39,7 @@
     </view>
 -->
 <!--推荐榜单 start-->
-<view class="sheet-container"> 
+<view class="sheet-container" wx:if='{{!loading}}'> 
   <view class="category-title">
     <text style='font-size:20px'> 推荐歌单 > </text>
   </view>  
@@ -59,8 +59,8 @@
   </scroll-view>  
 </view> 
 <!--注明 start-->
-    <view class="flex-sub text-center">
+    <view class="flex-sub text-center" wx:if='{{!loading}}'>
       <view class="text-xs padding">
-        <text class="text-gray">由QQ音乐，网易云音乐，酷我音乐提供技术支持</text>
+        <text class="text-gray">由bzqll、QQ音乐、网易云音乐、酷狗音乐提供技术支持</text>
       </view>
     </view>
