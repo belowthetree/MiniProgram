@@ -1,16 +1,16 @@
 {
-  "pages":[
-  
+  "pages": [
     "pages/list/list",
     "pages/play/play"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ebf6f7",
     "navigationBarTitleText": "The Charts",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -5,8 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-
-
     moment: [
       {
         id: 0,
@@ -102,8 +100,8 @@ Page({
         intro: "小可分享了《春歌》",
         content: "每一次看这歌词，就会让我想起自己的故事",
       },
-    ]
-
+    ],
+    index:0
   },
 
   navigate:function(e){//跳转前要先转码，避免一些特殊字符的影响
@@ -122,7 +120,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.cloud.callFunction({
+      name:'downloadShare',
+      data:{
+        index:that.data.index
+      },
+      success:function(res){
+        that.data.index++
+        console.log(res)
+      }
+    })
   },
 
   /**
