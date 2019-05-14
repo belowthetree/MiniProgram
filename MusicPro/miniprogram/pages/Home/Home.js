@@ -11,7 +11,17 @@ Page({
     userinfo:{},
     data:"",
   },
-
+  onGotUserInfo:function(e){
+    wx.getUserInfo({
+      success:function(res){
+        console.log(res)
+        app.globalData = {
+          username: res.userInfo.nickName,
+          avatar: res.userInfo.avatarUrl
+        }
+      }
+    })
+  },
   getshare:function(e){
     wx.cloud.callFunction({
       name:"downloadShare",

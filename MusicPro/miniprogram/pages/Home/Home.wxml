@@ -12,4 +12,7 @@
       <button class='text-slg cu-btn lg round lines-black' bindtap='getCollection'>我的收藏</button></navigator></view>
   </view>
     <!--接下来在下面添加个人的一些信息-收藏的歌曲数量、当前回复数-->
+    <view class=' radius text-center shadow-blur margin-bottom'>
+      <button class='text-slg cu-btn lg round lines-black' open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="onGotUserInfo">登录</button>
+    </view>
 </view>
