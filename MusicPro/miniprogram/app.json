@@ -1,12 +1,14 @@
 {
   "pages": [
+    "pages/collect/collect",
+    "pages/moment/moment",
+    "pages/Home/Home",
     "pages/music_index/music_index",
     "pages/search/search",
     "pages/community/community",
     "pages/shareDetail/shareDetail",
     "pages/list/list",
-    "pages/play/play",
-    "pages/Home/Home"
+    "pages/play/play"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

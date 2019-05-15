@@ -1,0 +1,45 @@
+
+<!--pages/collect/collect.wxml-->
+<!-- 全部播放 -->
+<view class='playbutton'>
+  <view class='left'>
+    <view class='icon1'></view>
+    <text class='block'>全部播放</text>
+  </view>
+  <view class='right'>
+    <view class='icon-add lg text-gray'></view>
+    <text>修改</text>
+  </view>
+</view>
+
+
+<view class='text' bindtap='chooseSezi'>请选择：颜色/尺码</view>
+<!--隐藏区域  -->
+<view class='maskLayer' wx:if="{{chooseSize}}" bindtap='hideModal'></view>
+<view class='choose' wx:if="{{chooseSize}}" animation='{{animationData}}'>
+  这里面是内容？？？
+</view>
+
+
+
+
+<!--歌单列表部分-->
+<scroll-view scroll-y="true">
+    <view class='songlist' wx:for="{{songlist}}" data-index="{{index}}" wx:for-item="item" bindtap='clickmusic'>              
+       <view class='songs'>
+        <text class='names'>  {{item.title}}</text> 
+        <text class='singers'> {{item.singer}}</text>    
+        <view class='upicon'>
+        <text class='rank'>{{index+1}}</text> <text class='hot'>time{{item.time}}</text>  
+       </view> 
+    </view>
+     
+     <view class='icon1' bindtap='chooseSezi'></view>
+<!--隐藏区域  -->
+<view class='maskLayer' wx:if="{{chooseSize}}" bindtap='hideModal'></view>
+<view class='choose' wx:if="{{chooseSize}}" animation='{{animationData}}'>
+  这里面是内容？？？
+</view>
+  </view>
+ 
+  </scroll-view>

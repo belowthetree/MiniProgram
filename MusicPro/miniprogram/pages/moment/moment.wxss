@@ -1,0 +1,79 @@
+/* pages/test2/test2.wxss */
+@import '../../colorui/main.wxss';
+@import '../../colorui/icon.wxss';
+
+
+.red{
+  background:var(--red);
+  display: block;
+  height: 50px;
+  text-align: center;
+  padding:15px;
+  font-size: medium;
+}
+.container{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items:  unset;
+  width: 100vw;
+  height: 100vh;
+  
+}
+
+.f{
+  display:flex;
+  width: 10vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20rpx;
+
+}
+
+.text{
+  width: 10px;
+  color:var(--cyan);
+    margin-bottom:50px;
+
+}
+
+
+
+
+.view{
+  width: 90vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  justify-items: center;
+  padding: 25px;
+}
+
+ .blo{
+  /*每个横着的整体块儿*/
+  margin: 15rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+}
+
+
+.pic{
+ height: 20vw;
+  width: 40vw;
+}
+
+.blo .little{
+  display: flex;
+  flex-direction: column;  
+}
+.intro{
+  padding: 15rpx;
+}
+.content{
+  width: 35vw;
+  padding: 15rpx;
+}

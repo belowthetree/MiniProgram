@@ -82,11 +82,21 @@ setMusic:function(title, coverImgUrl, singer, epname, src){
   addStar:function(e){//用于点赞数的增加
     var id = e.currentTarget.dataset.id
     console.log(this.data.moment[id]._id)
-    var cnt = this.data.moment[id].starcount - 1 + 2
+    var count = this.data.moment[id].starcount - 1 + 2
+    if(count%2==1){
+      var cnt = this.data.moment[id].starcount -1 +2
+    }
+    else{
+      var cnt = this.data.moment[id].starcount-1
+    }
     var st = 'moment['+id+'].starcount'
+    var _like=this.data.like
     this.setData({
-      [st]:cnt
-    })
+        [st]: cnt,
+        like:!_like
+      })
+ 
+    
   },
 
 submit:function(e){//用于用户提交评论
