@@ -1,0 +1,30 @@
+<!--pages/list/list.wxml-->
+<!--pages/list/list.wxml-->
+
+<view class='container'>
+<text class='popular'>巅峰榜</text> 
+
+
+
+ <!-- 歌曲与详情页的导航  <view class="navbar">  
+     <text wx:for="{{navbar}}" data-idx="{{index}}" 
+  class="item {{currentTab==index ? 'active' : ''}}" 
+  wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+  </view>-->
+
+</view>
+
+<!--全部播放-->
+  <view class='allplay'> 
+   <!--   <button class='pause'  size="{{defaultSize}}" loading="{{loading}}" plain='true' disabled="{{disabled}}"
+  bindtap="playmusic" hover-class="other-button-hover"  ></button> -->
+    <view class='pause' bindtap='playallmusic'></view> <!--播放按钮-->
+    <text class='playing'>全部播放</text>
+    <view class='list' bindtap='operatelist'></view>
+   </view>
+
+<!--歌单列表部分-->
+<scroll-view scroll-y="true">
+    <view class='songlist' wx:for="{{songlist}}" data-index="{{index}}"  wx:for-item="item" bindtap='clickmusic'> <view class='songs'><text class='names'>  {{item.name}}</text> <text class='singers'> {{item.singer}}</text>
+     <view class='upicon'><text class='rank'>{{index+1}} </text> <text class='hot'>{{item.hot}}</text> </view> </view> </view>
+  </scroll-view>
