@@ -10,9 +10,12 @@ exports.main = async (event, context) => {
   const db = cloud.database()
   const colls = db.collection("collections")
   return await colls.add({
-    data:{openid:wxContext.OPENID,
-    url:event.url,
-    imgpath:event.imgurl,
-    name:event.name}
+    data:{
+    openid:wxContext.OPENID,
+    src:event.src,
+    coverImgUrl:event.coverImgUrl,
+    singer:event.singer,
+    title:event.title
+    }
   })
 }

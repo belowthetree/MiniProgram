@@ -1,12 +1,12 @@
 {
   "pages": [
-    "pages/collect/collect",
     "pages/moment/moment",
+    "pages/collect/collect",
     "pages/Home/Home",
+    "pages/shareDetail/shareDetail",
     "pages/music_index/music_index",
     "pages/search/search",
     "pages/community/community",
-    "pages/shareDetail/shareDetail",
     "pages/list/list",
     "pages/play/play"
   ],
@@ -35,7 +35,7 @@
         "text": "音乐"
       },
       {
-        "pagePath": "pages/community/community",
+        "pagePath": "pages/moment/moment",
         "selectedIconPath": "/images/icon/community-selected.png",
         "iconPath": "/images/icon/community.png",
         "text": "社区"

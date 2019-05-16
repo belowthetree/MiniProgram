@@ -24,6 +24,21 @@ Page({
     })
   },
   
+  collect: function (e) {
+    var data = e.currentTarget.dataset
+    wx.cloud.callFunction({
+      name: "uploadCollection",
+      data: {
+        src:data.src,
+        coverImgUrl:data.coverImgUrl,
+        singer:data.singer,
+        title:data.title
+      },
+      success:function(res){
+        console.log(res)
+      }
+    })
+  },
 
   clickmusic: function (event) {
     app.data.songIndex =event.currentTarget.dataset.index;
@@ -102,7 +117,6 @@ Page({
           that.setData({
             songlist: res.data.data.songs
           })
-    
         },
         fail: function (res) { },
         complete: function (res) { },

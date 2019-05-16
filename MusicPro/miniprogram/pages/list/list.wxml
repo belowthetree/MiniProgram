@@ -28,11 +28,16 @@
 
 <!--歌单列表部分-->
 <scroll-view scroll-y="true">
-    <view class='songlist' wx:for="{{songlist}}" data-index="{{index}}" wx:for-item="item" bindtap='clickmusic'>                 <view class='songs'>
-                <text class='names'>  {{item.name}}</text> 
-                <text class='singers'> {{item.singer}}</text>
-                <view class='upicon'><text class='rank'>{{index+1}}</text> <text class='hot'>{{item.time}}                           </text>
-                 </view> </view> </view>
+  <view class='songlist' wx:for="{{songlist}}" data-index="{{index}}" wx:for-item="item" bindtap='clickmusic'>                          <view class='songs'>
+      <text class='names'>  {{item.name}}</text> 
+      <text class='singers'> {{item.singer}}</text>
+      <view class='upicon'><text class='rank'>{{index+1}}</text>
+        <text class='hot'>{{item.time}}</text>
+      </view>
+    </view>
+        <view catchtap='collect' data-src='{{item.url}}' data-title='{{item.name}}' style='position:absolute;right:200rpx;z-index:200;margin-top:15rpx;' data-coverImgUrl='{{item.pic}}' data-singer='{{item.singer}}'>收藏</view>
+        <view catchtap='share' style='position:absolute;right:100rpx;z-index:200;margin-top:15rpx;'>分享</view>
+  </view>
   </scroll-view>
  
 

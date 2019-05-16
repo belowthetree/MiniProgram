@@ -33,7 +33,6 @@ Page({
     innerAudioContext.destroy()
     wx.navigateTo({
       url: '/pages/play/play',
-
     })
   },  //点击歌曲名字跳转页面
 
@@ -74,6 +73,7 @@ Page({
 // 底部弹窗
   chooseSezi: function (e) {
     // 用that取代this，防止不必要的情况发生
+    console.log("tap")
     var that = this;
     // 创建一个动画实例
     var animation = wx.createAnimation({

@@ -156,6 +156,7 @@ submit:function(e){//用于用户提交评论
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var id = options.id
     //这里设置歌曲信息
     console.log(options)
     this.setMusic(decodeURIComponent(options.title), decodeURIComponent(options.coverImgUrl), decodeURIComponent(options.singer), decodeURIComponent(options.epname), decodeURIComponent(options.src))//参数传过来的时候经过了编码，这里需要转码
@@ -176,7 +177,7 @@ submit:function(e){//用于用户提交评论
     wx.cloud.callFunction({//这里调用云函数向服务器请求评论信息
       name:"downloadComment",
       data:{
-        ownerid:that.data.ownerid
+        ownerid:id
       },
       success:function(res){
         console.log(res)

@@ -25,21 +25,22 @@
 
 <!--歌单列表部分-->
 <scroll-view scroll-y="true">
-    <view class='songlist' wx:for="{{songlist}}" data-index="{{index}}" wx:for-item="item" bindtap='clickmusic'>              
+    <view class='songlist' wx:for="{{songlist}}" data-index="{{index}}" wx:for-item="item">              
        <view class='songs'>
         <text class='names'>  {{item.title}}</text> 
         <text class='singers'> {{item.singer}}</text>    
         <view class='upicon'>
-        <text class='rank'>{{index+1}}</text> <text class='hot'>time{{item.time}}</text>  
+        <text class='rank'>{{index+1}}</text> <text class='hot'>{{item.time}}</text>  
        </view> 
     </view>
      
-     <view class='icon1' bindtap='chooseSezi'></view>
+     
 <!--隐藏区域  -->
 <view class='maskLayer' wx:if="{{chooseSize}}" bindtap='hideModal'></view>
 <view class='choose' wx:if="{{chooseSize}}" animation='{{animationData}}'>
   这里面是内容？？？
 </view>
+<button class='icon1' bindtap='chooseSezi'></button>
   </view>
  
   </scroll-view>

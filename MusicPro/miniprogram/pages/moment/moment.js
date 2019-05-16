@@ -5,8 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
-
+    index:0,
     moment: [
       {
         id: 0,
@@ -113,7 +112,7 @@ Page({
     var src = encodeURIComponent(e.currentTarget.dataset.src)
     var singer = encodeURIComponent(e.currentTarget.dataset.singer)
     wx.navigateTo({
-      url: '/pages/shareDetail/shareDetail?title=' + title + '&coverImgUrl=' + coverImgUrl + '&epname=' + epname + '&src=' + src + '&singer=' + singer,
+      url: '/pages/shareDetail/shareDetail?title=' + title + '&coverImgUrl=' + coverImgUrl + '&epname=' + epname + '&src=' + src + '&singer=' + singer + '&id=' + e.currentTarget.dataset.id,
     })
   },
 
@@ -121,7 +120,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.cloud.callFunction({
+      name: 'downloadShare',
+      data: {
+        index: that.data.index
+      },
+      success: function (res) {
+        that.data.index++
+        wx.hideLoading()
+        console.log(res)
+        that.setData({
+          moment:res.result.data
+        })
+      }
+    })
   },
 
   /**
