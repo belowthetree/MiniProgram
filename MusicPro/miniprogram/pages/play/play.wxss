@@ -1,30 +1,193 @@
-/* pages/play/play.wxss
+/* pages/play/play.wxss */
 .container{
+  position: relative;
   display: flex;
   flex-direction: column;
   background-color: #d9e5e3;
-  height: 1200rpx;
+  align-items: center;
+  height: 1280rpx;
  
 }
 .songnameview{
-  position: relative;
-  top: -130rpx;
-  
-}
-.disk{
-  position: relative;
-  width: 600rpx;
-  height: 600rpx;
-  border-radius: 50%;
-  background-color: red;
-}
-.playslider{
- margin-top: 50rpx;
- margin-left: 50rpx;
-}
-.controlplay{
+  margin-top:50rpx;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400rpx;
+  height: 120rpx;
+}
+.name{
+  font-size:48rpx; 
+}
+.singer{
+  position: relative;
+  top: 20rpx;
+  font-size: 40rpx;
 }
 
- */
+.middle{
+  display: flex;
+  height: 700rpx;
+  width: 600rpx;
+  margin-left: 60rpx;
+  margin-top: 70rpx;
+  align-items: center;
+  
+}
+.middle-l {
+  
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+   
+}
+.lyric-wrapper{
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+    height: 100%;
+}
+.text{
+    line-height: 32px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+.current {
+    color: #8fbc8f;
+    font-size: 48rpx;
+}
+.currentLyricWrapper {
+    height:70rpx;
+    font-size:14px;
+    position:absolute;
+    bottom:-80rpx;
+    line-height: 70rpx;
+    text-align: center;
+    width: 100%;
+    color: #dda0dd;
+}
+
+
+.cd-inner {
+    position: relative;
+    display: inline-block;
+    z-index: 4;
+    top: 50rpx;
+    left: 20rpx;
+    height: 540rpx;
+    width: 540rpx;
+    background: url('https://i.loli.net/2019/05/16/5cdd84860066846246.png');
+    background-size: cover;
+    text-align: center;
+    padding-top: 50rpx;
+    box-sizing: border-box;
+    border-radius: 50%;
+    
+}
+.cd-animation {
+    -webkit-animation:circle 10s infinite linear;
+    animation:circle 10s infinite linear;
+}
+.cd-img {
+    display: inline-block;
+    width: 350rpx;
+    height: 350rpx;
+    border-radius: 50%;
+    margin-top:40rpx;
+}
+@-webkit-keyframes circle{
+    0%{ transform:rotate(0deg); }
+    100%{ transform:rotate(360deg); }
+}
+
+.controlplay{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 120rpx;
+  width: 600rpx;
+
+
+ 
+}
+.collect{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 60rpx;
+  margin-top: 40rpx;
+  background-image: url('https://i.loli.net/2019/05/12/5cd7a133c10fe.png');
+  background-size: 100% 100%;
+}
+.collected{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 60rpx;
+  margin-top: 40rpx;
+  background-image: url('https://i.loli.net/2019/05/12/5cd7a3601c908.png');
+  background-size: 100% 100%;
+}
+.lastview{
+  position: relative;
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 50rpx;
+  margin-top: 30rpx;
+  background-image: url('https://i.loli.net/2019/05/02/5ccaf1e943e3a.png');
+  background-size: 100% 100%;
+}
+.played{
+  position: relative;
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 50rpx;
+  margin-top: 30rpx;
+
+ background-image: url('https://i.loli.net/2019/05/05/5cce5ca053e9f.png');
+  background-size: 100% 100%;
+}
+ .normal{
+  position: relative;
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 50rpx;
+  margin-top: 30rpx;
+ background-image: url('https://i.loli.net/2019/05/02/5ccaf186bf1b3.png');
+  background-size: 100% 100%;
+}
+.nextview{
+  width: 70rpx;
+  height: 70rpx;
+  
+  margin-left: 50rpx;
+  margin-top: 30rpx;
+ background-image: url('https://i.loli.net/2019/05/02/5ccaf267d6953.png');
+  background-size: 100% 100%;
+}
+.order{
+  margin-left: 50rpx;
+  margin-top: 30rpx;
+  width: 70rpx;
+  height: 70rpx;
+ 
+ background-image: url('https://i.loli.net/2019/05/12/5cd7a9e6a6ccb.png');
+  background-size: 100% 100%;
+}
+.shuffle{
+   margin-left: 50rpx;
+  margin-top: 30rpx;
+  width: 70rpx;
+  height: 70rpx;
+ background-image: url('https://i.loli.net/2019/05/12/5cd7ad078e271.png');
+  background-size: 100% 100%;
+}
+
+
+
+
+
+
+
+
