@@ -26,13 +26,19 @@ Page({
   
   collect: function (e) {
     var data = e.currentTarget.dataset
+    var coverImgUrl = encodeURIComponent(data.coverimgurl)
+    console.log(data.coverimgurl)
+    var singer = encodeURIComponent(data.singer)
+    var src = encodeURIComponent(data.src)
+    var title = encodeURIComponent(data.title)
+    console.log(data)
     wx.cloud.callFunction({
       name: "uploadCollection",
       data: {
-        src:data.src,
-        coverImgUrl:data.coverImgUrl,
-        singer:data.singer,
-        title:data.title
+        src:src,
+        coverImgUrl:coverImgUrl,
+        singer:singer,
+        title:title
       },
       success:function(res){
         console.log(res)

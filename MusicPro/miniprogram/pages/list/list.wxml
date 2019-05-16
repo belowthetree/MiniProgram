@@ -35,7 +35,7 @@
         <text class='hot'>{{item.time}}</text>
       </view>
     </view>
-        <view catchtap='collect' data-src='{{item.url}}' data-title='{{item.name}}' style='position:absolute;right:200rpx;z-index:200;margin-top:15rpx;' data-coverImgUrl='{{item.pic}}' data-singer='{{item.singer}}'>收藏</view>
+        <view catchtap='collect' data-coverimgurl='{{item.pic}}' data-singer='{{item.singer}}' data-src='{{item.url}}' data-title='{{item.name}}' style='position:absolute;right:200rpx;z-index:200;margin-top:15rpx;'>收藏</view>
         <view catchtap='share' style='position:absolute;right:100rpx;z-index:200;margin-top:15rpx;'>分享</view>
   </view>
   </scroll-view>

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/Home/Home",
     "pages/list/list",
     "pages/play/play"
   ],

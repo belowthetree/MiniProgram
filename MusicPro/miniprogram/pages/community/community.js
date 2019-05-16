@@ -122,13 +122,16 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.cloud.callFunction({
-      name:'downloadShare',
+      name:'downloadAllShare',
       data:{
         index:that.data.index
       },
       success:function(res){
         that.data.index++
         console.log(res)
+        that.setData({
+          moment:res.result.data
+        })
       }
     })
   },

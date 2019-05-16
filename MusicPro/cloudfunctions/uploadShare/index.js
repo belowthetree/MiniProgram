@@ -10,9 +10,11 @@ exports.main = async (event, context) => {
   const shares = db.collection("shares")
   return await shares.add({
     data:{
-      name:event.name,
-      url:event.url,
-      imgpath:event.imgpath,
+      title:event.title,
+      epname:event.epname,
+      singer:event.singer,
+      src:event.src,
+      coverImgUrl:event.coverImgUrl,
       date:db.serverDate(),
       openid:wxContext.OPENID,
       text:event.text
