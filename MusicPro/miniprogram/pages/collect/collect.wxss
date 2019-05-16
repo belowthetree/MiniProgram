@@ -222,3 +222,22 @@
   font-size: 38rpx;
   font-style: italic;
 }
+/* 动画层 */
+.choose{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  height: 40vh;
+  background:white;
+}
+.choose.item{
+padding: 5rpx;
+}
+.text{
+ word-break: keep-all;
+ word-wrap: break-word;
+}
+.height{
+  height: 100rpx;
+  width: 10rpx;
+}
