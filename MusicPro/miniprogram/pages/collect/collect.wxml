@@ -14,6 +14,7 @@
 
 
 <view class='text' bindtap='chooseSezi'>请选择：颜色/尺码</view>
+<view>这是动画区域</view>
 <!--隐藏区域  -->
 <view class='maskLayer' wx:if="{{chooseSize}}" bindtap='hideModal'></view>
 <view class='choose' wx:if="{{chooseSize}}" animation='{{animationData}}'>
