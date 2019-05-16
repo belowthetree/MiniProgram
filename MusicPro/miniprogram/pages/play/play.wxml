@@ -1,22 +1,43 @@
 <view class='container'>
-  <view class='songnameview'> <text class='name'>王菲-红豆</text></view>
-  <view class='disk'></view>
-<!--进度条-->
-  <view class='playslider'>
-   <slider block-size='12' bindchange='audioChange' activeColor='#79c06e' bindchanging='audioChanging' value='{{sliderValue}}'></slider>
-  </view>
-
+  <view class='songnameview'> <text class='name'>{{song.name}}</text> <text class='singer'>{{song.singer}}</text></view>
+<swiper class="middle"  style="height: 700rpx">
+      <!--转盘-->
+        <swiper-item class="middle-l" style="overflow: visible">
+            <view class="cd-inner cd-animation">
+                <image class="cd-img" src="{{song.pic}}"></image>
+ </view>
+        </swiper-item>
+        <!--歌词
+        <swiper-item class="middle-r">
+          <scroll-view class="lyric-wrapper" scroll-y scroll-into-view="line{{toLineNum}}" scroll-with-animation>
+              <view v-if="currentLyric">
+              <view ref="lyricLine"
+                    id="line{{index}}"
+                    class="text {{currentLineNum == index ? 'current': '' }}"
+                    wx:for="{{currentLyric.lines}}">{{item.txt}}
+              </view>
+            </view>
+            <view wx:if="{{!currentLyric}}">
+              <view class="text current">暂无歌词</view>
+            </view>
+           
+          </scroll-view>
+        </swiper-item>-->
+</swiper>
+    
 <!--播放控制区域-->
   <view class='controlplay'>
+  <!--收藏按钮-->
+  <view class="{{iscollect?'collect':'collected'}}" bindtap="collectmusic"></view>
 <!--上一首按钮-->
-   <view class='lastview' bindtap='lastSong'> 上一首</view>
+   <view class='lastview ' bindtap='lastSong'> </view>
   <!--播放/暂停按钮-->
-   <view class='pauseview' bindtap='pauseSong'> 暂停</view>
+ <view class="{{isplayed?'played':'normal'}}" bindtap="listenerButtonPlay"></view>
 <!--下一首按钮-->
-   <view class='nextview' bindtap='nextSong'> 下一首</view>
-     <view class='nextview' bindtap='addLike'> 收藏</view>
-<view class='nextview' bindtap='choseOrder'> 随机</view>
-
- 
+   <view class='nextview' bindtap='nextSong'> </view>
+   <view class="{{isorder?'shuffle':'order'}}" bindtap="playorder"></view>
   </view>
 </view>
+
+
+
