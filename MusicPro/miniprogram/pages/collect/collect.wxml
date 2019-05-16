@@ -13,13 +13,20 @@
 </view>
 
 
-<view class='text' bindtap='chooseSezi'>请选择：颜色/尺码</view>
-<view>这是动画区域</view>
+
 <!--隐藏区域  -->
 <view class='maskLayer' wx:if="{{chooseSize}}" bindtap='hideModal'></view>
+
 <view class='choose' wx:if="{{chooseSize}}" animation='{{animationData}}'>
-  这里面是内容？？？
+    <view class='songs' bindtap='nextplay'>下一首播放</view>
+ <view class='songs' bindtap=''>
+  <navigator url="/pages/moment/moment?title=navigate" hover-class="navigator-hover">评论 </navigator>
+ </view>
+ <view class='songs' bindtap=''>  
+  <navigator url="/pages/moment/moment?title=navigate" hover-class="navigator-hover">分享</navigator>
+ </view>
 </view>
+
 
 
 
@@ -35,12 +42,14 @@
        </view> 
     </view>
      
-     <view class='icon1' bindtap='chooseSezi'></view>
-<!--隐藏区域  -->
-<view class='maskLayer' wx:if="{{chooseSize}}" bindtap='hideModal'></view>
-<view class='choose' wx:if="{{chooseSize}}" animation='{{animationData}}'>
-  这里面是内容？？？
-</view>
+    
+
+     <button class='icon-edit lg text-gray height' catchtap='chooseSezi'>
+     
+     </button>
+
+
+
+
   </view>
- 
   </scroll-view>
