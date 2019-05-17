@@ -5,7 +5,7 @@
     <text class='text' class='' style='width:33vw;'>我的收藏</text>
 </view>
 <view class='container'>
-<scroll-view scroll-y class='view cu-card case' >
+<scroll-view scroll-y class='view cu-card case' bindscrolltoupper='update' bindscrolltolower='addUpdate'>
 <view class='blo cu-item radius shadow' style='margin:15px;' wx:for="{{moment}}" data-title='{{item.title}}' data-singer='{{item.singer}}' data-src='{{item.src}}' data-coverImgUrl='{{item.coverImgUrl}}' data-id='{{item._id}}' data-text="{{item.text}}" bindtap='navigate'>
   <image class="pic" src="{{item.coverImgUrl}}" style='height:85%;'></image>
   <view class='little' style='height:85%;'>

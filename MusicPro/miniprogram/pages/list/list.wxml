@@ -36,19 +36,10 @@
       </view>
     </view>
         <view catchtap='collect' data-coverimgurl='{{item.pic}}' data-singer='{{item.singer}}' data-src='{{item.url}}' data-title='{{item.name}}' style='position:absolute;right:200rpx;z-index:200;margin-top:15rpx;'>收藏</view>
-        <view catchtap='share' style='position:absolute;right:100rpx;z-index:200;margin-top:15rpx;'>分享</view>
+        <view catchtap='showShare' data-coverImgUrl='{{item.pic}}' data-singer='{{item.singer}}' data-src='{{item.url}}' data-title='{{item.name}}' style='position:absolute;right:100rpx;z-index:200;margin-top:15rpx;'>分享</view>
   </view>
   </scroll-view>
- 
-
-           
-
-
-
-
-
-
-
-
-
-
+<view wx:if="{{show}}" class='cu-bar input foot' style='position:fixed;bottom:0;width:100vw;'>
+<input focus='true' type='text' id='comment' placeholder='我想说.....' value="{{text}}" bindinput='change'  bindblur='hide' data-name='comment'></input>
+<button type='button' class='cu-btn' style='width:15vw;' bindtap='share'>分享</button>
+</view>

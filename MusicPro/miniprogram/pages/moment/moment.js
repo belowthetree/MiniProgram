@@ -116,6 +116,73 @@ Page({
     })
   },
 
+  addUpdate:function(e){
+    var that = this
+    wx.cloud.callFunction({
+      name: 'downloadShare',
+      data: {
+        index: that.data.index
+      },
+      success: function (res) {
+        that.data.index++
+        if (!res.result.data) {
+          wx.showToast({
+            title: '没有新内容',
+            icon: 'none'
+          })
+          return
+        }
+        wx.hideLoading()
+        var len = res.result.data.length
+        for (let i = 0; i < len; i++) {
+          res.result.data[i]["intro"] = res.result.data[i].name + "分享了这首歌"
+        }
+        console.log(res)
+        var tmp = that.data.moment.concat(res.result.data)
+        console.log(res)
+        that.setData({
+          moment: tmp
+        })
+      }
+    })
+  },
+
+  update:function(e){
+    wx.showLoading({
+      title: '正在刷新',
+    })
+    this.setData({
+      index:0
+    })
+    var that = this
+    wx.cloud.callFunction({
+      name: 'downloadShare',
+      data: {
+        index: that.data.index
+      },
+      success: function (res) {
+        that.data.index++
+        console.log(res)
+        if(!res.result.data){
+          wx.showToast({
+            title: '没有内容',
+            icon: 'none'
+          })
+          return
+        }
+        wx.hideLoading()
+        var len = res.result.data.length
+        for (let i = 0; i < len; i++) {
+          res.result.data[i]["intro"] = res.result.data[i].name + "分享了这首歌"
+        }
+        console.log(res)
+        that.setData({
+          moment: res.result.data
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

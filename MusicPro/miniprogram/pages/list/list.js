@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show:false,
+    text:"",
     navbar: ['歌曲', '详情'],
     currentTab: 0,
     dataNow:'',
@@ -21,6 +23,66 @@ Page({
     SetSize(e) {
     this.setData({
       size: e.detail.value
+    })
+  },
+
+  change:function(e){
+    this.setData({
+      text: e.detail.value
+    })
+  },
+
+  hide:function(e){
+    console.log("hide")
+    this.setData({
+      show:false
+    })
+  },
+
+  share:function(e){
+    var that = this
+    var data = that.data
+    console.log(data)
+    wx.cloud.callFunction({
+      name:"uploadShare",
+      data:{
+        name:data.name,
+        title:data.title,
+        src:data.src,
+        epname:data.epname,
+        singer:data.singer,
+        coverImgUrl:data.coverImgUrl,
+        text:data.text
+      },
+      success:function(res){
+        console.log(res)
+        wx.showToast({
+          title:"分享成功"
+        })
+        that.setData({
+          text:""
+        })
+      },
+      fail:function(res){
+        console.log(res)
+        wx.showToast({
+          title: '分享失败',
+        })
+      }
+    })
+  },
+
+  showShare:function(event){
+    console.log("share")
+    var e = event.currentTarget.dataset
+    this.data["name"] = app.globalData.username
+    this.data["title"] = e.title
+    this.data["epname"] = e.title
+    this.data["src"] = e.src
+    this.data["singer"] = e.singer
+    this.data["coverImgUrl"] = e.coverImgUrl
+    this.setData({
+      show:true
     })
   },
   
