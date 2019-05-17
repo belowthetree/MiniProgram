@@ -21,10 +21,12 @@
   color: wheat;
 }
 .popular{
-  position: absolute;
+  position: relative;
   font-size: 80rpx;
   letter-spacing: 12rpx;
   color: wheat;
+  top: 20rpx;
+  left: 20rpx;
 }
 .topimg{
   position: absolute;
@@ -35,12 +37,12 @@
   height: 500rpx;
 }
  .navbar{  
-  position: absolute; 
+  position: relative; 
   display: flex;  
   background: #fff;  
-  top: 500rpx;
+  top: 195rpx;
   width: 800rpx;
-  height: 80rpx;
+  height: 107rpx;
   border-width: 4rpx 0rpx 4rpx 0rpx;
   box-shadow: 0rpx 0rpx 0rpx 0.2rpx #d3d3d3 inset;
 }  
@@ -72,12 +74,12 @@
   margin: 0px auto;
 }
 .allplay{
+  position: relative;
   display: flex;
   flex-direction: row;
-  position: relative;
-  top: 380rpx;
+  top: 201rpx;
   width: 800rpx;
-  height: 100rpx;
+  height: 165rpx;
   border-width: 4rpx 0rpx 4rpx 0rpx;
   box-shadow: 0rpx 0rpx 0rpx 0.2rpx #d3d3d3 inset;
 }
@@ -98,16 +100,7 @@
   top: 24rpx;
   left: 110rpx;
 }
-.download{
-  position: relative;
-  left: 360rpx;
-  top: 16rpx;
-  width: 70rpx;
-  height: 70rpx;
-  border-radius: 100%;
-  background-image: url('https://i.loli.net/2019/05/02/5cca90b604de2.png');
-  background-size: 100% 100%;
-}
+
 .list{
   position: relative;
   left: 390rpx;

@@ -10,6 +10,7 @@ exports.main = async (event, context) => {
   const shares = db.collection("shares")
   return await shares.add({
     data:{
+      name:event.name,
       title:event.title,
       epname:event.epname,
       singer:event.singer,

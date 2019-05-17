@@ -12,9 +12,14 @@ Page({
     data:"",
   },
   onGotUserInfo:function(e){
+    var that = this
     wx.getUserInfo({
       success:function(res){
         console.log(res)
+        that.setData({
+          imgpath:res.userInfo.avatarUrl,
+          username:res.userInfo.nickName
+        })
         app.globalData = {
           username: res.userInfo.nickName,
           avatar: res.userInfo.avatarUrl
@@ -137,6 +142,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var app = getApp()
+    wx.login({
+      success: function () {
+        wx.getSetting({
+          success: function (res) {
+            console.log(res)
+            wx.getUserInfo({
+              success: function (res) {
+                console.log("get")
+                that.setData({
+                  imgpath: res.userInfo.avatarUrl,
+                  username: res.userInfo.nickName
+                })
+                app.globalData = {
+                  username: res.userInfo.nickName,
+                  imgpath: res.userInfo.avatarUrl
+                }
+              }
+            })
+          }
+        })
+      }
+    })
     wx.setNavigationBarTitle({
       title: '用户界面',
     })

@@ -18,9 +18,9 @@
       </view>
       <text class='content'>{{item.text}}</text>
       <view class='star' bindtap='like' style='display:flex;flex-direction:column;align-items:center;justify-content:space-around;'> 
-          <text data-id="{{id}}"  wx:if="{{like}}" bindtap='addStar' class='icon-likefill lg text-gray'></text>
+          <!--<text data-id="{{id}}"  wx:if="{{like}}" bindtap='addStar' class='icon-likefill lg text-gray'></text>
           <text data-id="{{id}}" wx:if="{{!like}}" bindtap='addStar' class='icon-like lg text-gray'></text>
-          <text>{{item.starcount}}</text>
+          <text>{{item.starcount}}</text>-->
       </view>
     </view>
   </block>

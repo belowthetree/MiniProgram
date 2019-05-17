@@ -15,24 +15,6 @@ App({
       })
     }
     var that = this
-    wx.login({
-      success:function(){
-        wx.getSetting({
-          success:function(res){
-            console.log(res)
-            wx.getUserInfo({
-              success: function (res) {
-                console.log("get")
-                that.globalData = {
-                  username: res.userInfo.nickName,
-                  avatar: res.userInfo.avatarUrl
-                }
-              }
-            })
-          }
-        })
-      }
-    })
 
     this.globalData = {
       username:"none",

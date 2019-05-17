@@ -112,7 +112,7 @@ Page({
     var src = encodeURIComponent(e.currentTarget.dataset.src)
     var singer = encodeURIComponent(e.currentTarget.dataset.singer)
     wx.navigateTo({
-      url: '/pages/shareDetail/shareDetail?title=' + title + '&coverImgUrl=' + coverImgUrl + '&epname=' + epname + '&src=' + src + '&singer=' + singer + '&id=' + e.currentTarget.dataset.id,
+      url: '/pages/shareDetail/shareDetail?title=' + title + '&coverImgUrl=' + coverImgUrl + '&epname=' + epname + '&src=' + src + '&singer=' + singer + '&id=' + e.currentTarget.dataset.id + "&text=" + e.currentTarget.dataset.text,
     })
   },
 
@@ -132,6 +132,10 @@ Page({
       success: function (res) {
         that.data.index++
         wx.hideLoading()
+        var len = res.result.data.length
+        for(let i = 0;i < len;i++){
+          res.result.data[i]["intro"] = res.result.data[i].name+"分享了这首歌"
+        }
         console.log(res)
         that.setData({
           moment:res.result.data
