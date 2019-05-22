@@ -81,7 +81,7 @@ Page({
   nextSong: function () {
     if (app.data.songIndex == app.data.songlist.length - 1) {
       innerAudioContext.stop();
-      this.data.isplayed = false;
+      this.setData({ isplayed: false })
       wx.showToast({
         title: '没有更多歌曲了',
         duration: 1000,
@@ -91,18 +91,20 @@ Page({
     else {
       app.data.songIndex++;
       this.playAndtime();
+      this.setData({ isplayed: true })
     }
   },
 
 
   //顺序播放按钮
   playorder: function () {
+    var that = this;
     if (this.data.isorder) {
       innerAudioContext.onEnded(() => {
         that.setData({ isplayed: true })
         if (app.data.songIndex == app.data.songlist.length - 1) {
           innerAudioContext.stop();
-          this.data.isplayed = false;
+          that.setData({ isplayed: false })
           wx.showToast({
             title: '没有更多歌曲了',
             duration: 1000,
@@ -140,6 +142,7 @@ Page({
       song:app.data.songlist[app.data.songIndex],
   
     })
+    bgm.stop();
     innerAudioContext.autoplay = true;
     innerAudioContext.src = app.data.songlist[app.data.songIndex].url;
     innerAudioContext.play(() => {
@@ -151,7 +154,7 @@ Page({
       that.setData({ isplayed: true })
       if (app.data.songIndex == app.data.songlist.length - 1) {
         innerAudioContext.stop();
-        this.data.isplayed = false;
+        that.setData({ isplayed: false })
         wx.showToast({
           title: '没有更多歌曲了',
           duration: 1000,
@@ -219,7 +222,8 @@ Page({
      */
     onUnload: function () {
       var time = innerAudioContext.currentTime;
-      innerAudioContext.destroy();
+      innerAudioContext.stop();
+      console.log(time);
       bgm.startTime = time;
       bgm.title = app.data.songlist[app.data.songIndex].name;
       bgm.coverImgUrl = app.data.songlist[app.data.songIndex].pic;
