@@ -6,6 +6,7 @@ Page({
   data: {
     TabCur: 0,
     scrollLeft: 0,
+    maxnum:10,
     searchContent: '搜索内容',
     navbar: ['网易云音乐', 'QQ音乐', '酷狗音乐'],
     searchResult:null,
@@ -74,7 +75,7 @@ Page({
     }
     else if (this.data.TabCur == 2) {
       app.data.songlist = this.data.kugouResult
-      wx.navigateTo({   //跳转
+            wx.navigateTo({   //跳转
         url: '../play/play',
       })
     }
@@ -83,7 +84,7 @@ Page({
   search(currentId) {
     var that = this
     var musicId
-    var max = 9
+    var max = this.data.maxnum
     //qq音乐
     wx.request({
       url: 'https://v1.itooi.cn/tencent/search?keyword=' + this.data.searchContent + '&type=song&pageSize=100&page=0',
@@ -125,7 +126,7 @@ Page({
             [`neteaseResult[${i}].singer`]: res.data.data.songs[i].ar["0"].name,
             [`neteaseResult[${i}].name`]: res.data.data.songs[i].name,
             [`neteaseResult[${i}].songId`]: musicId,
-            [`neteaseResult[${i}].url`]: 'https://v1.itooi.cn/netease/url?id=' + musicId + '&quality=flac',
+            [`neteaseResult[${i}].url`]: 'https://v1.itooi.cn/netease/url?id=' + musicId + '&quality=320',
             [`neteaseResult[${i}].pic`]: 'https://v1.itooi.cn/netease/pic?id=' + musicId,
             [`neteaseResult[${i}].lrc`]: 'https://v1.itooi.cn/netease/lrc?id=' + musicId,
           })

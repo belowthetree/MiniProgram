@@ -18,8 +18,8 @@
 </scroll-view>
 <!--搜索结果-->
 <block wx:for="{{searchResult}}" wx:key data-item="item" >
-  <view class="search-result padding solid-top" catchtap="play" data-index='{{index}}'>
-    <text class='margin-lr-xs' style='font-size:24px'>{{item.name}}</text>
+  <view class="search-result solid-top" catchtap="play" data-index='{{index}}'>
+    <text class='margin-lr-xs' style='font-size:20px'>{{item.name}}</text>
     <text class='margin-lr-xs'>{{item.singer}}</text>
   </view>
 </block>
