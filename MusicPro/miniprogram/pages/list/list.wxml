@@ -1,45 +1,30 @@
-
+<!--pages/list/list.wxml-->
+<!--pages/list/list.wxml-->
 
 <view class='container'>
-<view class='comment' bindtap='comm'></view>
-<text class='popular'>流行指数</text>
-<text class='times'> {{year}}{{month}} 更新</text>
-  <view class='topimg'> <!--顶部图片-->
-    <image class='img3' src='/images/img2.jpg' style='opacity:{{0.3}}'></image>
-  </view>
+<text class='popular'>巅峰榜</text> 
 
- <!-- 歌曲与详情页的导航-->
-  <view class="navbar">  
-     <text wx:for="{{navbar}}" data-index="{{index}}" 
+
+
+ <!-- 歌曲与详情页的导航  <view class="navbar">  
+     <text wx:for="{{navbar}}" data-idx="{{index}}" 
   class="item {{currentTab==index ? 'active' : ''}}" 
   wx:key="unique" bindtap="navbarTap">{{item}}</text>  
-  </view>
+  </view>-->
+
+</view>
 
 <!--全部播放-->
   <view class='allplay'> 
    <!--   <button class='pause'  size="{{defaultSize}}" loading="{{loading}}" plain='true' disabled="{{disabled}}"
   bindtap="playmusic" hover-class="other-button-hover"  ></button> -->
-    <view class='pause' bindtap='playmusic'></view> <!--播放按钮-->
+    <view class='pause' bindtap='playallmusic'></view> <!--播放按钮-->
     <text class='playing'>全部播放</text>
-    <view class='download' bindtap='downmusic'>下载</view>  <!--下载按钮-->
     <view class='list' bindtap='operatelist'></view>
    </view>
-</view>
 
 <!--歌单列表部分-->
 <scroll-view scroll-y="true">
-  <view class='songlist' wx:for="{{songlist}}" data-index="{{index}}" wx:for-item="item" bindtap='clickmusic'>                          <view class='songs'>
-      <text class='names'>  {{item.name}}</text> 
-      <text class='singers'> {{item.singer}}</text>
-      <view class='upicon'><text class='rank'>{{index+1}}</text>
-        <text class='hot'>{{item.time}}</text>
-      </view>
-    </view>
-        <view catchtap='collect' data-coverimgurl='{{item.pic}}' data-singer='{{item.singer}}' data-src='{{item.url}}' data-title='{{item.name}}' style='position:absolute;right:200rpx;z-index:200;margin-top:15rpx;'>收藏</view>
-        <view catchtap='showShare' data-coverImgUrl='{{item.pic}}' data-singer='{{item.singer}}' data-src='{{item.url}}' data-title='{{item.name}}' style='position:absolute;right:100rpx;z-index:200;margin-top:15rpx;'>分享</view>
-  </view>
+    <view class='songlist' wx:for="{{songlist}}" data-index="{{index}}"  wx:for-item="item" bindtap='clickmusic'> <view class='songs'><text class='names'>  {{item.name}}</text> <text class='singers'> {{item.singer}}</text>
+     <view class='upicon'><text class='rank'>{{index+1}} </text> <text class='hot'>{{item.hot}}</text> </view> </view> </view>
   </scroll-view>
-<view wx:if="{{show}}" class='cu-bar input foot' style='position:fixed;bottom:0;width:100vw;'>
-<input focus='true' type='text' id='comment' placeholder='我想说.....' value="{{text}}" bindinput='change'  bindblur='hide' data-name='comment'></input>
-<button type='button' class='cu-btn' style='width:15vw;' bindtap='share'>分享</button>
-</view>

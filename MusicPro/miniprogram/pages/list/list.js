@@ -1,195 +1,97 @@
 // pages/list/list.js
 const app = getApp();
-const time=new Date();
-var util = require('../../utils/util.js')
 const innerAudioContext = wx.createInnerAudioContext()
+const bgm = wx.getBackgroundAudioManager()
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    show:false,
-    text:"",
-    navbar: ['歌曲', '详情'],
-    currentTab: 0,
-    dataNow:'',
     onplay: true,
-    songlist : [],
-    url_ye:'',
-    year: time.getMonth,
-    month:time.getDate,
-  },
-  
-    SetSize(e) {
-    this.setData({
-      size: e.detail.value
-    })
-  },
-
-  change:function(e){
-    this.setData({
-      text: e.detail.value
-    })
-  },
-
-  hide:function(e){
-    console.log("hide")
-    this.setData({
-      show:false
-    })
-  },
-
-  share:function(e){
-    var that = this
-    var data = that.data
-    console.log(data)
-    wx.cloud.callFunction({
-      name:"uploadShare",
-      data:{
-        name:data.name,
-        title:data.title,
-        src:data.src,
-        epname:data.epname,
-        singer:data.singer,
-        coverImgUrl:data.coverImgUrl,
-        text:data.text
-      },
-      success:function(res){
-        console.log(res)
-        wx.showToast({
-          title:"分享成功"
-        })
-        that.setData({
-          text:""
-        })
-      },
-      fail:function(res){
-        console.log(res)
-        wx.showToast({
-          title: '分享失败',
-        })
-      }
-    })
-  },
-
-  showShare:function(event){
-    console.log("share")
-    var e = event.currentTarget.dataset
-    this.data["name"] = app.globalData.username
-    this.data["title"] = e.title
-    this.data["epname"] = e.title
-    this.data["src"] = e.src
-    this.data["singer"] = e.singer
-    this.data["coverImgUrl"] = e.coverImgUrl
-    this.setData({
-      show:true
-    })
-  },
-  
-  collect: function (e) {
-    var data = e.currentTarget.dataset
-    var coverImgUrl = encodeURIComponent(data.coverimgurl)
-    console.log(data.coverimgurl)
-    var singer = encodeURIComponent(data.singer)
-    var src = encodeURIComponent(data.src)
-    var title = encodeURIComponent(data.title)
-    console.log(data)
-    wx.cloud.callFunction({
-      name: "uploadCollection",
-      data: {
-        src:src,
-        coverImgUrl:coverImgUrl,
-        singer:singer,
-        title:title
-      },
-      success:function(res){
-        console.log(res)
-      }
-    })
+    songlist: null,
+    list_pic:''
   },
 
   clickmusic: function (event) {
-    app.data.songIndex =event.currentTarget.dataset.index;
-    console.log(event.currentTarget.dataset.index)
-    innerAudioContext.destroy()
+    app.data.songIndex = event.currentTarget.dataset.index;
+    
+    bgm.stop();
+   innerAudioContext.destroy();
     wx.navigateTo({
       url: '/pages/play/play',
 
     })
-  },  //点击歌曲名字跳转页面
+  },  
 
-
-  playmusic:function(event){
-    var that=this;
+  playallmusic:function(){
+    var that = this;
     innerAudioContext.autoplay = true;
     innerAudioContext.src = this.data.songlist[0].url;
-    if(that.data.onplay){
-    innerAudioContext.play()
+    if (that.data.onplay) {
+      innerAudioContext.play()
       that.setData({ onplay: false })
-    
-    }
-    else{
-      innerAudioContext.pause();
-      that.setData({onplay : true})
-    }
-  }, 
 
-  // 导航切换监听
-  navbarTap: function (e) {
-    this.setData({
-      currentTab: idx
+    }
+    else {
+      innerAudioContext.pause();
+      that.setData({ onplay: true })
+    }
+    innerAudioContext.onEnded(() => {
+      that.setData({ onplay: true })
+      if (app.data.songIndex == app.data.songlist.length - 1) {
+        innerAudioContext.stop();
+        this.data.onplay = false;
+        wx.showToast({
+          title: '没有更多歌曲了',
+          duration: 1000,
+          mask: true
+        })
+      }
+      else {
+        app.data.songIndex++;
+        innerAudioContext.stop();
+        innerAudioContext.src = app.data.songlist[app.data.songIndex].url;
+        innerAudioContext.play(() => {
+        })
+      }
     })
-  },
-  bindButtonTap() {
-    this.setData({
-      focus: true
-    })
-  },
-  bindTextAreaBlur(e) {
-    console.log(e.detail.value)
-  },
-  bindFormSubmit(e) {
-    console.log(e.detail.value.textarea)
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-      var that = this;
-      var TIME = new Date();
-      // util.formatTime(new Data());
-      that.setData({time:TIME,});
-    console.log(app.data.listIndex)
-      if(app.data.listIndex == 1){
-        that.setData({
-          url_ye: 'https://api.itooi.cn/music/netease/songList?key=579621905&id=3778678&limit=10&offset=0'})
-      }
-      else{
-            if(app.data.listIndex == 2){
-              that.setData({ url_ye: 'https://api.itooi.cn/music/kuwo/songList?key=579621905&id=1082685106'})
-            }
-            else{
-              that.setData({ url_ye: 'https://api.itooi.cn/music/tencent/songList?key=579621905&id=6944236671'}) 
-            }
-      }
-  
-      wx.request({
-        url: that.data.url_ye,
-        header: {},
-        method: 'GET',
-        dataType: 'json',
-        success: function (res) {
-          app.data.songlist= res.data.data.songs
-          console.log(res)
+   var that=this;
+    wx.request({
+      url: 'https://v1.itooi.cn/tencent/songList?id=' + options.sheetId + '&pageSize=100&page=0',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({ list_pic: res.data.data["0"].logo})
+        for (let i = 0; i < res.data.data["0"].songlist.length; i++) {
+          var musicId = res.data.data[0].songlist[i].mid
           that.setData({
-            songlist: res.data.data.songs
+            //数组单项赋值，通过 ES6 的 模板字符串 和 属性名表达式，注意在项目配置里面开启ES6 转 ES5
+            //注意不是单引号'，是`
+            [`songlist[${i}].singer`]: res.data.data["0"].songlist[i].singer["0"].name,
+            [`songlist[${i}].name`]: res.data.data["0"].songlist[i].title,
+            [`songlist[${i}].songId`]: musicId,
+            [`songlist[${i}].url`]: 'https://v1.itooi.cn/tencent/url?id=' + musicId + '&quality=128',
+            [`songlist[${i}].pic`]: 'https://v1.itooi.cn/tencent/pic?id=' + musicId,
+            [`songlist[${i}].lrc`]: 'https://v1.itooi.cn/tencent/lrc?id=' + musicId,
+
+
           })
-        },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
-    },
+        }
+        app.data.songlist = that.data.songlist;
+      },
+      fail: function (res) { },
+      complete: function (res) { },
+
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
