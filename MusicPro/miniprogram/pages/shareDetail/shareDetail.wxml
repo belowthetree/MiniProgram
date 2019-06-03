@@ -8,7 +8,12 @@
 <!--以上为分享的歌曲信息-->
 
 <!--接下来为评论部分-->
-<view>
+
+<view class="WxComment">
+  <WxComment tipOne="WxComment " articleID='{{ownerid}}' tipTwo="Powered by https://github.com/yicm" submitBtnText="回复"  contentLen='1' theme="light"></WxComment>
+</view>
+
+<!--<view>
     <block wx:for="{{moment}}" wx:for-index="id" >
       <view class='padding solid-top margin-top'></view>
       <view  class='hotword'>
@@ -21,7 +26,7 @@
           <!--<text data-id="{{id}}"  wx:if="{{like}}" bindtap='addStar' class='icon-likefill lg text-gray'></text>
           <text data-id="{{id}}" wx:if="{{!like}}" bindtap='addStar' class='icon-like lg text-gray'></text>
           <text>{{item.starcount}}</text>-->
-      </view>
+      <!--</view>
     </view>
   </block>
 </view>
@@ -29,7 +34,9 @@
 <view class='cu-bar input foot' style='position:fixed;bottom:0;width:100vw;'>
 <input type='text' id='comment' placeholder='我想说.....' value='{{comment}}' bindblur='change' data-name='comment'></input>
 <button type='button' class='cu-btn' style='width:15vw;' bindtap='submit'>评论</button>
+-->
 </view>
+
 
 
 
