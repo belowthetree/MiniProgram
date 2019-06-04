@@ -3,10 +3,10 @@
   <view bindtap='openshare'><image src='/icons/分享方式.png' style='width:50rpx;height:50rpx;position:absolute;right:40rpx;top:20rpx;'></image></view>
 <swiper class="middle"  style="height: 700rpx">
       <!--转盘-->
-        <swiper-item class="middle-l" style="overflow: visible">
-            <view class="cd-inner cd-animation">
+        <swiper-item  class="middle-l" style="overflow: visible">
+            <view class="{{cdbox}}">
                 <image class="cd-img" src="{{song.pic}}"></image>
- </view>
+            </view>
         </swiper-item>
         <!--歌词
         <swiper-item class="middle-r">

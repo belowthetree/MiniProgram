@@ -17,7 +17,7 @@ Page({
     isplayed: true, //是否播放
     iscollect: true, // 是否收藏
     isorder: false,  // 是否乱序
-    
+    cdbox:'cd-inner cd-animation',
   },
 
   hide:function(e){
@@ -158,23 +158,36 @@ Page({
     console.log(this.data.song)
     if (this.data.isplayed) {
       innerAudioContext.pause();
-      this.setData({ isplayed: false})
+      this.setData({
+        isplayed: false,
+        cdbox: 'pause cd-inner cd-animation'
+      });
     }
     else {
       innerAudioContext.play();
-      this.setData({ isplayed: true })
+      this.setData({
+        isplayed: true,
+        cdbox: 'restart cd-inner cd-animation'
+      });
     }
   },
 
   lastSong: function () {
 
-    if (app.data.songIndex) {
+    if (app.data.songIndex) {     
+      this.setData({ 
+        isplayed: true,
+        cdbox: 'cd-inner cd-animation',
+      });
       app.data.songIndex--;
       this.playAndtime()
     }
     else {
-
-      this.data.isplayed = false;
+      innerAudioContext.pause();
+      this.setData({ 
+        isplayed: false,
+        cdbox: 'pause cd-inner cd-animation',
+       });
       wx.showToast({
         title: '没有更多歌曲了',
         duration: 1000,
@@ -186,8 +199,11 @@ Page({
 
   nextSong: function () {
     if (app.data.songIndex == app.data.songlist.length - 1) {
-      innerAudioContext.stop();
-      this.setData({ isplayed: false })
+      innerAudioContext.pause();
+      this.setData({ 
+        isplayed: false,
+        cdbox: 'pause cd-inner cd-animation',
+       })
       wx.showToast({
         title: '没有更多歌曲了',
         duration: 1000,
@@ -197,7 +213,10 @@ Page({
     else {
       app.data.songIndex++;
       this.playAndtime();
-      this.setData({ isplayed: true })
+      this.setData({ 
+        isplayed: true,
+        cdbox: 'cd-inner cd-animation',
+       })
     }
   },
 
