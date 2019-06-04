@@ -163,5 +163,15 @@ Page({
         swiperList: list
       })
     }
+  },
+  onPullDownRefresh: function () {
+    // 显示顶部刷新图标
+    wx.showNavigationBarLoading();
+    this.onLoad();
+    var that = this;
+    // 隐藏导航栏加载框
+    wx.hideNavigationBarLoading();
+    // 停止下拉动作
+    wx.stopPullDownRefresh();
   }
 })

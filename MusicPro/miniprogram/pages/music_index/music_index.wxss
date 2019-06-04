@@ -33,3 +33,7 @@
   text-align: center;
   flex-direction: column;
 }
+.img{
+  height: 155rpx;
+  width: 305rpx;
+}
