@@ -229,7 +229,10 @@ Page({
         that.setData({ isplayed: true })
         if (app.data.songIndex == app.data.songlist.length - 1) {
           innerAudioContext.stop();
-          that.setData({ isplayed: false })
+          that.setData({
+            isplayed: false,
+            cdbox: 'pause cd-inner cd-animation',
+          })
           wx.showToast({
             title: '没有更多歌曲了',
             duration: 1000,
@@ -278,7 +281,10 @@ Page({
       that.setData({ isplayed: true })
       if (app.data.songIndex == app.data.songlist.length - 1) {
         innerAudioContext.stop();
-        that.setData({ isplayed: false })
+        that.setData({
+          isplayed: false,
+          cdbox: 'pause cd-inner cd-animation',
+        })
         wx.showToast({
           title: '没有更多歌曲了',
           duration: 1000,
