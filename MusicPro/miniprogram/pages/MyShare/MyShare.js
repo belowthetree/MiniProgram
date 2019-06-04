@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    index:0,
+    index: 0,
     moment: []
   },
   navigate: function (e) {//跳转前要先转码，避免一些特殊字符的影响
@@ -20,18 +20,7 @@ Page({
     })
   },
 
-  toshare:function(e){
-    wx.switchTab({
-      url: '/pages/music_index/music_index',
-    })
-  },
-  myshare: function (e) {
-    wx.navigateTo({
-      url: '/pages/MyShare/MyShare',
-    })
-  },
-
-  addUpdate:function(e){
+  addUpdate: function (e) {
     var that = this
     wx.cloud.callFunction({
       name: 'downloadShare',
@@ -62,12 +51,12 @@ Page({
     })
   },
 
-  update:function(e){
+  update: function (e) {
     wx.showLoading({
       title: '正在刷新',
     })
     this.setData({
-      index:0
+      index: 0
     })
     var that = this
     wx.cloud.callFunction({
@@ -78,14 +67,13 @@ Page({
       success: function (res) {
         that.data.index++
         console.log(res)
-        if(!res.result.data){
+        if (!res.result.data) {
           wx.showToast({
             title: '没有内容',
             icon: 'none'
           })
           return
         }
-        wx.hideLoading()
         var len = res.result.data.length
         for (let i = 0; i < len; i++) {
           res.result.data[i]["intro"] = res.result.data[i].name + "分享了这首歌"
@@ -94,6 +82,9 @@ Page({
         that.setData({
           moment: res.result.data
         })
+      },
+      complete: function (res) {
+        wx.hideLoading()
       }
     })
   },
@@ -107,20 +98,21 @@ Page({
       title: '加载中',
     })
     wx.cloud.callFunction({
-      name: 'downloadShare',
+      name: 'downloadMyShare',
       data: {
         index: that.data.index
       },
       success: function (res) {
+        console.log(res)
         that.data.index++
         wx.hideLoading()
         var len = res.result.data.length
-        for(let i = 0;i < len;i++){
-          res.result.data[i]["intro"] = res.result.data[i].name+"分享了这首歌"
+        for (let i = 0; i < len; i++) {
+          res.result.data[i]["intro"] = res.result.data[i].name + "分享了这首歌"
         }
         console.log(res)
         that.setData({
-          moment:res.result.data
+          moment: res.result.data
         })
       }
     })

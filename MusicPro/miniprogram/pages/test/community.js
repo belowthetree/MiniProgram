@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show:false,
+  },
 
+  tap:function(e){
+    this.setData({
+      show:true
+    })
   },
 
   test:function(e){

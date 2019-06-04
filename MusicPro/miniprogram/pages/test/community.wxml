@@ -1,6 +1,22 @@
-<!--miniprogram/pages/community/community.wxml-->
-<view class='container2'>
-  <sharebar src='/icons/人名.png'></sharebar>
-  <button bindtap='test'>测试按钮</button>
-  
+<!--分享-->
+<view wx:if='{{show}}' class='cu-modal {{show?"show":""}}'>
+<view style='width:90vw;margin-left:5vw;margin-right:5vw;' wx:if='{{show}}' class='cu-dialog'>
+  <view class='cu-card article'>
+    <view class='cu-item shadow'>
+    <view style='display:flex;flex-direction:row;padding:15rpx;'>
+      <image src='https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'></image>
+      <view style='display:flex;flex-direction:column;padding:15rpx;'>
+        <view class='title'>歌名</view>
+        <view class='text'>歌手</view>
+      </view>
+    </view>
+    <!--输入框-->
+    <view class="cu-bar input">
+    <input class="solid-bottom" bindblur="InputBlur" adjust-position="{{true}}" focus="{{true}}" maxlength="300" cursor-spacing="0" style='text-align:left;'></input>
+    <button class="cu-btn bg-green shadow">分享</button>
+    </view>
+    </view>
+  </view>
 </view>
+</view>
+<button bindtap='tap'>tap</button>

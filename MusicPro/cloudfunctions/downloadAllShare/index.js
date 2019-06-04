@@ -21,11 +21,11 @@ exports.main = async (event, context) => {
   const tasks = []
   
   if (index == 0) {
-    const task = db.collection('shares').orderBy("index", "desc").limit(MAX_LIMIT).get()
+    const task = db.collection('shares').orderBy("_id", "desc").limit(MAX_LIMIT).get()
     tasks.push(task)
   }
   else {
-    const promise = db.collection('shares').orderBy("index", "desc").skip(index * MAX_LIMIT).limit(MAX_LIMIT).get()
+    const promise = db.collection('shares').orderBy("_id", "desc").skip(index * MAX_LIMIT).limit(MAX_LIMIT).get()
     tasks.push(promise)
   }
 

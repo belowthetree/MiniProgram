@@ -1,5 +1,6 @@
 <view class='container'>
   <view class='songnameview'> <text class='name'>{{song.name}}</text> <text class='singer'>{{song.singer}}</text></view>
+  <view bindtap='openshare'><image src='/icons/分享方式.png' style='width:50rpx;height:50rpx;position:absolute;right:40rpx;top:20rpx;'></image></view>
 <swiper class="middle"  style="height: 700rpx">
       <!--转盘-->
         <swiper-item class="middle-l" style="overflow: visible">
@@ -39,4 +40,26 @@
   </view>
 </view>
 
+<!--分享-->
+<view wx:if='{{show}}' class='cu-modal {{show?"show":""}}'>
+<view style='width:90vw;margin-left:5vw;margin-right:5vw;' wx:if='{{show}}' class='cu-dialog'>
+  <view class='cu-card article'>
+    <view class='cu-item shadow'>
+    <view style='display:flex;flex-direction:row;padding:15rpx;'>
+      <image style='width:200rpx;height:200rpx;' src='{{song.pic}}'></image>
+      <view style='display:flex;flex-direction:column;padding:15rpx;'>
+        <view class='title'>{{song.name}}</view>
+        <view style='text-align:left;'>{{song.singer}}</view>
+      </view>
+    </view>
+    <!--输入框-->
+    <view class="cu-bar input">
+    <button class='cu-btn bg-danger shadow' bindtap='hide'>取消</button>
+    <input class="solid-bottom" bindblur="input" adjust-position="{{true}}" focus="{{true}}" maxlength="300" cursor-spacing="0" style='text-align:left;' value='{{text}}' placeholder='分享你的心情'></input>
+    <button class="cu-btn bg-green shadow" bindtap='share'>分享</button>
+    </view>
+    </view>
+  </view>
+</view>
+</view>
 

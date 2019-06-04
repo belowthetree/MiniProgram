@@ -1,8 +1,6 @@
 <!--pages/test2/test2.wxml-->
 <view class='grid col-3 margin-bottom text-center'>
-<text class="text" class='' style='width:33vw;' bindtap='toshare'>搜歌分享</text>
-<text class='text' class='' style='width:33vw;' bindtap='myshare'>我的分享</text>
-<text class='text' class='' style='width:33vw;' bindtap='mycollect'>我的收藏</text>
+    <text style='width:100vw;font-size:35rpx;padding:5rpx;'>我的分享列表</text>
 </view>
 <view class='container'>
 <scroll-view scroll-y class='view cu-card case' bindscrolltoupper='update' bindscrolltolower='addUpdate'>

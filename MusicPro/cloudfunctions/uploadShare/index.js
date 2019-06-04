@@ -12,13 +12,14 @@ exports.main = async (event, context) => {
     data:{
       name:event.name,
       title:event.title,
-      epname:event.epname,
+      epname:event.title,
       singer:event.singer,
       src:event.src,
       coverImgUrl:event.coverImgUrl,
       date:db.serverDate(),
       openid:wxContext.OPENID,
-      text:event.text
+      text:event.text,
+      index:""
     },
     success(res){
       console.log(res)

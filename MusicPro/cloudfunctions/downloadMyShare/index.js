@@ -18,13 +18,13 @@ exports.main = async (event, context) => {
   }
 
   const tasks = []
-
+  
   if (index == 0) {
-    const task = db.collection('shares').where({openid:event.OPENID}).orderBy("index", "desc").limit(MAX_LIMIT).get()
+    const task = db.collection('shares').where({openid:wxContext.OPENID}).orderBy("index", "desc").limit(MAX_LIMIT).get()
     tasks.push(task)
   }
   else {
-    const promise = db.collection('shares').where({openid: event.OPENID}).orderBy("index", "desc")
+    const promise = db.collection('shares').where({ openid: wxContext.OPENIDD}).orderBy("index", "desc")
         .skip(index * MAX_LIMIT).limit(MAX_LIMIT).get()
     tasks.push(promise)
   }

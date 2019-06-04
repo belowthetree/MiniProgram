@@ -1,14 +1,16 @@
 {
   "pages": [
+    "pages/music_index/music_index",
+    "pages/test/community",
+    "pages/play/play",
     "pages/moment/moment",
     "pages/collect/collect",
     "pages/Home/Home",
     "pages/shareDetail/shareDetail",
-    "pages/music_index/music_index",
     "pages/search/search",
     "pages/community/community",
     "pages/list/list",
-    "pages/play/play"
+    "pages/MyShare/MyShare"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -17,13 +19,13 @@
     "navigationBarTitleText": "云开发 QuickStart",
     "navigationBarTextStyle": "black"
   },
-  "tabBar":{
+  "tabBar": {
     "color": "#a9b7b7",
     "selectedColor": "#11cd6e",
     "borderStyle": "black",
-    "list":[
+    "list": [
       {
-        "pagePath":"pages/Home/Home",
+        "pagePath": "pages/Home/Home",
         "selectedIconPath": "/images/icon/home-selected.png",
         "iconPath": "/images/icon/home.png",
         "text": "主页"
@@ -43,7 +45,7 @@
     ]
   },
   "sitemapLocation": "sitemap.json",
-  "requiredBackgroundModes":[
+  "requiredBackgroundModes": [
     "audio"
   ]
 }

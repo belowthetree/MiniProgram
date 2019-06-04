@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    text:"",
+    show:false,
     name:'',
     singer:'',
     song: null,
@@ -17,15 +19,119 @@ Page({
     isorder: false,  // 是否乱序
     
   },
+
+  hide:function(e){
+    this.setData({
+      show:false,
+      text:""
+    })
+  },
+
+  input:function(e){
+    this.setData({
+      text:e.detail.value
+    })
+  },
+
+  openshare:function(e){
+    if(!app.username){
+      wx.showToast({
+        title: '请先登陆',
+        icon:"none"
+      })
+      return
+    }
+    this.setData({
+      show:true
+    })
+  },
+
+  share:function(e){
+    wx.showLoading({
+      title: '分享中',
+    })
+    var data = this.data.song
+    var that = this
+    wx.cloud.callFunction({
+      name:'uploadShare',
+      data:{
+        name:app.globalData.username,
+        src: data.url,
+        title: data.name,
+        coverImgUrl: data.pic,
+        singer: data.singer,
+        text:that.data.text
+      },
+      success:function(res){
+        console.log(res)
+      },
+      fail:function(res){
+        console.log(res)
+      },
+      complete:function(res){
+        that.setData({
+          show: false,
+          text: ""
+        })
+        wx.hideLoading()
+      }
+    })
+  },
   //收藏音乐图标
   collectmusic: function () {
+    console.log('collect')
+    wx.showLoading({
+      title: '请稍后',
+    })
+    var that = this
+    var data = this.data.song
     if (this.data.iscollect) {
-      this.setData({
-        iscollect: false
+      wx.cloud.callFunction({
+        name: 'uploadCollection',
+        data: {
+          type: 'add',
+          url: data.url,
+          name: data.name,
+          pic: data.pic,
+          singer: data.singer,
+          songid: data.songId
+        },
+        success:function(res){
+          console.log(res)
+          that.setData({
+            iscollect: false
+          })
+        },
+        fail:function(res){
+          console.log(res)
+        },
+        complete: function (res) {
+          wx.hideLoading()
+        }
       })
     } else {
-      this.setData({
-        iscollect: true
+      wx.cloud.callFunction({
+        name: 'uploadCollection',
+        data: {
+          type: 'del',
+          url: data.url,
+          name: data.name,
+          pic: data.pic,
+          singer: data.singer,
+          songid: data.songId
+        },
+        success: function (res) {
+          console.log(res)
+          that.setData({
+            iscollect: true
+          })
+        },
+        fail: function (res) {
+          console.log(res)
+        },
+        complete:function(res){
+          wx.hideLoading()
+        }
       })
     }
   },
@@ -140,7 +246,6 @@ Page({
     var that = this;
     that.setData({
       song:app.data.songlist[app.data.songIndex],
-  
     })
     bgm.stop();
     innerAudioContext.autoplay = true;
