@@ -354,10 +354,18 @@ Page({
       var time = innerAudioContext.currentTime;
       innerAudioContext.stop();
       console.log(time);
-      bgm.startTime = time;
-      bgm.title = app.data.songlist[app.data.songIndex].name;
-      bgm.coverImgUrl = app.data.songlist[app.data.songIndex].pic;
-      bgm.src = app.data.songlist[app.data.songIndex].url;
+      //有小程序有bug，根本没办法用.pause()
+      if (this.data.isplayed == false){
+        bgm.pause();
+        console.log("pause");
+      }
+      else{
+        bgm.startTime = time;
+        bgm.title = app.data.songlist[app.data.songIndex].name;
+        bgm.coverImgUrl = app.data.songlist[app.data.songIndex].pic;
+        bgm.src = app.data.songlist[app.data.songIndex].url;
+      }
+      
     },
 
     /**
