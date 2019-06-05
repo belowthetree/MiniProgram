@@ -15,7 +15,6 @@ Page({
 
   clickmusic: function (event) {
     app.data.songIndex = event.currentTarget.dataset.index;
-    
     bgm.stop();
    innerAudioContext.destroy();
     wx.navigateTo({
@@ -23,9 +22,18 @@ Page({
 
     })
   },  
+  clickplayall: function (event) {
+    app.data.songIndex = 0;
+    bgm.stop();
+    innerAudioContext.destroy();
+    wx.navigateTo({
+      url: '/pages/play/play',
 
+    })
+  },  
   playallmusic:function(){
     var that = this;
+    bgm.stop();
     innerAudioContext.autoplay = true;
     innerAudioContext.src = this.data.songlist[0].url;
     if (that.data.onplay) {
