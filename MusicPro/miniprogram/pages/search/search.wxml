@@ -20,6 +20,6 @@
 <block wx:for="{{searchResult}}" wx:key data-item="item" >
   <view class="search-result solid-top" catchtap="play" data-index='{{index}}'>
     <text class='margin-lr-xs' style='font-size:20px'>{{item.name}}</text>
-    <text class='margin-lr-xs'>{{item.singer}}</text>
+    <text class='margin-lr-xs text-grey'>{{item.singer}}</text>
   </view>
 </block>

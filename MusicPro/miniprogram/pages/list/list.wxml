@@ -18,7 +18,7 @@
   <view class='allplay'> 
    <!--   <button class='pause'  size="{{defaultSize}}" loading="{{loading}}" plain='true' disabled="{{disabled}}"
   bindtap="playmusic" hover-class="other-button-hover"  ></button> -->
-    <view class='pause' bindtap='playallmusic'></view> <!--播放按钮-->
+    <view class='pause' bindtap='clickplayall'></view> <!--播放按钮-->
     <text class='playing'>全部播放</text>
     <view class='list' bindtap='operatelist'></view>
    </view>
