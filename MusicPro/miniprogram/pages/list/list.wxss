@@ -16,7 +16,7 @@
 
 .popular{
   position: relative;
-  font-size: 80rpx;
+  font-size: 40rpx;
   letter-spacing: 12rpx;
   color: wheat;
 }

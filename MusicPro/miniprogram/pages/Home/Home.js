@@ -11,10 +11,27 @@ Page({
     userinfo:{},
     data:"",
   },
+
+  myshare: function (e) {
+    wx.navigateTo({
+      url: '/pages/MyShare/MyShare',
+    })
+  },
+
+  mycollect:function(e){
+    wx.navigateTo({
+      url: '/pages/collect/collect',
+    })
+  },
+
   onGotUserInfo:function(e){
+    wx.showLoading({
+      title: '登陆中',
+    })
     var that = this
     wx.getUserInfo({
       success:function(res){
+        wx.hideLoading()
         console.log(res)
         that.setData({
           imgpath:res.userInfo.avatarUrl,
@@ -49,48 +66,6 @@ Page({
         imgpth:"newimgpth"
       },
       success:function(res){
-        console.log(res)
-      }
-    })
-  },
-
-  uploadColl:function(e){
-    wx.cloud.callFunction({
-      name:"uploadCollection",
-      data:{
-        url:"testurl",
-        imgurl:"imgpath",
-        name:"菊花台"
-        },
-        success:function(res){
-          console.log(res)
-        },
-        fail:function(res){
-          console.log(res)
-        }
-    })
-  },
-
-  getCollection:function(e){
-    var id = "3fc2c9075cb178e205794d1518154f8f"
-    wx.cloud.callFunction({
-      name:"getCollection",
-      data:{},
-      success:function(res){
-        console.log(res)
-        id = res.result.data[0]._id
-      },
-      fail:function(res){
-        console.log(res)
-      }
-    })
-    wx.cloud.callFunction({
-      name:"deleteCollection",
-      data:{id:id},
-      success:function(res){
-        console.log(res)
-      },
-      fail:function(res){
         console.log(res)
       }
     })

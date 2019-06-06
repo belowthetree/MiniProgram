@@ -17,7 +17,7 @@ Page({
 
       ],
     comment:"",
-    ownerid:"o1rPE5Ii6z3tZ5hNLOMxO6zNZVxk",
+    ownerid:"",
     isPlayingMusic: false,
     button: "../images/play.jpg",
   },

@@ -38,13 +38,16 @@ Page({
 
 
   playmusic: function (event) {
+    console.log(event)
+    var index = event.currentTarget.dataset.index
     var that = this;
     innerAudioContext.autoplay = true;
-    innerAudioContext.src = this.data.songlist[0].url;
+    if(innerAudioContext.src != this.data.songlist[index].src)
+      that.data.onplay = false
+    innerAudioContext.src = this.data.songlist[index].src;
     if (that.data.onplay) {
       innerAudioContext.play()
       that.setData({ onplay: false })
-
     }
     else {
       innerAudioContext.pause();
@@ -109,22 +112,68 @@ Page({
     })
   },
 
-
-
+  del:function(e){
+    var that = this
+    var data = e.currentTarget.dataset
+    console.log(e)
+    wx.showLoading({
+      title: '删除中',
+    })
+    wx.cloud.callFunction({
+      name: 'uploadCollection',
+      data: {
+        type: 'del',
+        songid: data.id
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          iscollect: true
+        })
+        wx.cloud.callFunction({
+          name: "getCollection",
+          data: {
+          },
+          success: function (res) {
+            console.log(res)
+            if(res.result.data)
+            that.setData({
+              songlist: res.result.data
+            })
+          },
+          fail: function (res) {
+            console.log(res)
+            wx.hideLoading()
+          }
+        })
+      },
+      fail: function (res) {
+        console.log(res)
+      },
+      complete: function (res) {
+        wx.hideLoading()
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log("onload")
+    wx.showLoading({
+      title: '加载中',
+    })
     var that = this
     wx.cloud.callFunction({
-      name:"downloadMyShare",
+      name:"getCollection",
       data:{
-        index:0
+        
       },
       success:function(res){
+        wx.hideLoading()
         console.log(res)
+        if (res.result.data)
         that.setData({
           songlist:res.result.data
         })
@@ -133,42 +182,6 @@ Page({
         console.log(res)
       }
     })
-
-    /*var that = this;
-    var TIME = new Date();
-    // util.formatTime(new Data());
-    that.setData({ time: TIME, });
-    console.log(app.data.listIndex)
-    if (app.data.listIndex == 1) {
-      that.setData({
-        url_ye: 'https://api.itooi.cn/music/netease/songList?key=579621905&id=3778678&limit=10&offset=0'
-      })
-    }
-    else {
-      if (app.data.listIndex == 2) {
-        that.setData({ url_ye: 'https://api.itooi.cn/music/kuwo/songList?key=579621905&id=1082685106' })
-      }
-      else {
-        that.setData({ url_ye: 'https://api.itooi.cn/music/tencent/songList?key=579621905&id=6944236671' })
-      }
-    }
-
-    wx.request({
-      url: that.data.url_ye,
-      header: {},
-      method: 'GET',
-      dataType: 'json',
-      success: function (res) {
-        app.data.songlist = res.data.data.songs
-        console.log(res)
-        that.setData({
-          songlist: res.data.data.songs
-        })
-
-      },
-      fail: function (res) { },
-      complete: function (res) { },
-    })*/
   },
 
   /**

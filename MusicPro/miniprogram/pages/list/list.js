@@ -81,8 +81,6 @@ Page({
             [`songlist[${i}].url`]: 'https://v1.itooi.cn/tencent/url?id=' + musicId + '&quality=128',
             [`songlist[${i}].pic`]: 'https://v1.itooi.cn/tencent/pic?id=' + musicId,
             [`songlist[${i}].lrc`]: 'https://v1.itooi.cn/tencent/lrc?id=' + musicId,
-
-
           })
         }
         app.data.songlist = that.data.songlist;

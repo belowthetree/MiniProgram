@@ -34,7 +34,7 @@ Page({
   },
 
   openshare:function(e){
-    if(!app.username){
+    if(!app.globalData.username){
       wx.showToast({
         title: '请先登陆',
         icon:"none"
