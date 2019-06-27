@@ -23,7 +23,15 @@ Page({
 
     })
   },  
+  clickplayall: function (event) {
+    app.data.songIndex = 0;
+    bgm.stop();
+    innerAudioContext.destroy();
+    wx.navigateTo({
+      url: '/pages/play/play',
 
+    })
+  },
   playallmusic:function(){
     var that = this;
     innerAudioContext.autoplay = true;

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "WxComment": "/WxComment/component/WxComment/WxComment"
-  }
+  },
+  "navigationBarTitleText": "分享详情"
 }
